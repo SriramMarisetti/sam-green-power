@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --color-sam-deep: #063B18;
+  --color-sam-leaf: #55B51F;
+  --color-sam-solar: #F5A000;
+  --color-sam-blue: #1762A5;
+  --color-sam-dark: #101A13;
+  --color-sam-light: #F7FAF5;
+  --color-sam-muted: #718078;
+  
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+  }
+
+  body {
+    background-color: #F7FAF5;
+    color: #101A13;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom glow and glass effects adhering strictly to brand palette */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(85, 181, 31, 0.15);
+}
+
+.glass-panel-dark {
+  background: rgba(6, 59, 24, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(85, 181, 31, 0.25);
+}
+
+.glow-leaf {
+  box-shadow: 0 0 25px rgba(85, 181, 31, 0.35);
+}
+
+.glow-solar {
+  box-shadow: 0 0 30px rgba(245, 160, 0, 0.4);
+}
+
+.glow-panel-blue {
+  box-shadow: 0 0 25px rgba(23, 98, 165, 0.3);
+}
+
+/* Leaf SVG pattern background */
+.bg-leaf-pattern {
+  background-image: radial-gradient(#55B51F 0.75px, transparent 0.75px);
+  background-size: 24px 24px;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F7FAF5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #718078;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #55B51F;
+}
