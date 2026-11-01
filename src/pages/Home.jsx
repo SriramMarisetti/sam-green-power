@@ -6,10 +6,18 @@ import WhyChooseUs from '../components/WhyChooseUs';
 import HowItWorks from '../components/HowItWorks';
 import SolarCalculator from '../components/SolarCalculator';
 import ProjectShowcase from '../components/ProjectShowcase';
+import OurLocations from '../components/OurLocations';
 import CallToAction from '../components/CallToAction';
 import ContactSection from '../components/ContactSection';
 
 export default function Home({ onOpenQuote, onSelectSolution, onCalculateQuote, contactSolution }) {
+  const handleBookInCity = (city, state) => {
+    onOpenQuote({
+      location: city,
+      state: state
+    });
+  };
+
   return (
     <>
       {/* Full-Bleed Solar & Sky Hero Section */}
@@ -24,14 +32,19 @@ export default function Home({ onOpenQuote, onSelectSolution, onCalculateQuote, 
       {/* Why Choose Us */}
       <WhyChooseUs />
 
-      {/* How It Works Timeline */}
+      {/* How It Works Timeline (10 Steps from Client Page 4) */}
       <HowItWorks onStartJourney={onOpenQuote} />
 
-      {/* Interactive Solar Sizing & Savings Calculator */}
+      {/* Interactive Solar Sizing & Savings Calculator (Page 2) */}
       <SolarCalculator onCalculateQuote={onCalculateQuote} />
 
       {/* Project Showcase Gallery */}
       <ProjectShowcase />
+
+      {/* Our Locations Network (Pages 3 & 4: 16 in AP & 12 in Telangana) */}
+      <section className="py-6 bg-[#F7FAF5]">
+        <OurLocations onBookInCity={handleBookInCity} />
+      </section>
 
       {/* Call To Action Banner */}
       <CallToAction onOpenQuote={onOpenQuote} />

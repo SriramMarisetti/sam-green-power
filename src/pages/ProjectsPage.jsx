@@ -24,7 +24,7 @@ export default function ProjectsPage({ onOpenQuote }) {
     <div className="bg-[#F7FAF5] pb-20">
       
       {/* Header Banner */}
-      <section className="relative pt-28 pb-16 sm:pt-32 sm:pb-20 bg-[#063B18] text-white overflow-hidden">
+      <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-20 bg-[#063B18] text-white overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#55B51F]/15 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#F5A000]/15 rounded-full blur-3xl pointer-events-none" />
 
@@ -32,10 +32,10 @@ export default function ProjectsPage({ onOpenQuote }) {
           <ScrollReveal animation="fade-up" className="max-w-3xl space-y-4">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-[#55B51F] text-xs font-bold uppercase tracking-wider backdrop-blur-md">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Demonstrated Engineering Portfolio</span>
+              <span>Our Projects • Commissioned Systems</span>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight font-display">
-              Powering a Brighter Tomorrow.
+              Our Projects & Commissioned Systems.
             </h1>
             <p className="text-base sm:text-lg text-slate-200 leading-relaxed font-normal">
               Review our executed rooftop and ground-mounted solar photovoltaic installations across residential residences, corporate parks, manufacturing factories, and large-scale renewable facilities.

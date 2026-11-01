@@ -1,5 +1,5 @@
 import React from 'react';
-import { Leaf, ShieldCheck, Sun, Zap, CheckCircle2, Globe2, Compass } from 'lucide-react';
+import { Leaf, ShieldCheck, Sun, Zap, CheckCircle2, Globe2, Compass, Mail, Phone, MapPin, Award, Users, Wrench } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ScrollReveal, { ScrollStagger } from '../components/ScrollReveal';
 
@@ -8,7 +8,7 @@ export default function AboutPage({ onOpenQuote }) {
     <div className="bg-[#F7FAF5]">
       
       {/* Page Header Banner */}
-      <section className="relative pt-28 pb-16 sm:pt-32 sm:pb-20 bg-[#063B18] text-white overflow-hidden">
+      <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-20 bg-[#063B18] text-white overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#55B51F]/15 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#F5A000]/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -16,19 +16,19 @@ export default function AboutPage({ onOpenQuote }) {
           <ScrollReveal animation="fade-up" className="max-w-3xl space-y-4">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-[#55B51F] text-xs font-bold uppercase tracking-wider backdrop-blur-md">
               <Leaf className="w-3.5 h-3.5" />
-              <span>About Our Enterprise</span>
+              <span>About Us • Page 2 Client Specifications</span>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight font-display">
-              Powering Sustainable Transitions with Engineering Precision.
+              Clean Energy. Smarter Living. Better Future.
             </h1>
             <p className="text-base sm:text-lg text-slate-200 leading-relaxed font-normal">
-              SAM GREEN POWER SOLUTIONS PRIVATE LIMITED is dedicated to delivering durable, high-yield photovoltaic systems that empower homeowners, businesses, and industrial facilities with clean energy independence.
+              SAM GREEN POWER SOLUTIONS PRIVATE LIMITED is dedicated to delivering durable, high-yield photovoltaic systems that empower homeowners, businesses, and industrial facilities with clean energy independence across Andhra Pradesh and Telangana.
             </p>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* Main Narrative & Company Vision */}
+      {/* Main Narrative: Who We Are & What We Do */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -39,7 +39,7 @@ export default function AboutPage({ onOpenQuote }) {
                 <img
                   src="/images/about-solar.jpg"
                   alt="SAM Green Power Photovoltaic System"
-                  className="w-full h-[450px] object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                  className="w-full h-[480px] object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#063B18]/70 via-transparent to-transparent" />
                 
@@ -63,12 +63,14 @@ export default function AboutPage({ onOpenQuote }) {
 
             {/* Right Column Text */}
             <ScrollReveal animation="fade-left" delay={150} duration={800} className="lg:col-span-6 space-y-6">
-              <div className="space-y-4">
+              
+              {/* Who we are? */}
+              <div className="space-y-3">
                 <span className="text-xs font-extrabold uppercase tracking-widest text-[#55B51F] block">
-                  Who We Are
+                  Point 2 • Profile Overview
                 </span>
-                <h2 className="text-3xl sm:text-4xl font-black text-[#063B18] tracking-tight font-display leading-snug">
-                  Clean Energy. Smarter Living. Better Future.
+                <h2 className="text-3xl sm:text-4xl font-black text-[#063B18] tracking-tight font-display">
+                  Who We Are?
                 </h2>
                 
                 <div className="p-5 rounded-2xl bg-[#F7FAF5] border border-[#55B51F]/20">
@@ -76,135 +78,190 @@ export default function AboutPage({ onOpenQuote }) {
                     "At <strong>SAM GREEN POWER SOLUTIONS PRIVATE LIMITED</strong>, we believe in creating a sustainable future through smarter solar energy solutions. We aim to help homes and businesses embrace renewable energy with efficient, reliable, and innovative solar solutions."
                   </p>
                 </div>
+              </div>
 
+              {/* What we do? */}
+              <div className="space-y-3 pt-2">
+                <h3 className="text-2xl font-black text-[#063B18] tracking-tight font-display">
+                  What We Do?
+                </h3>
                 <p className="text-sm sm:text-base text-[#718078] leading-relaxed">
-                  Renewable energy is no longer just an alternative; it is an economic and environmental imperative. We bridge the gap between cutting-edge solar photovoltaic advancements and seamless on-ground implementation, ensuring every kilowatt of power installed performs at peak harvest for decades.
+                  We are a premier solar engineering, procurement, and construction (EPC) company offering end-to-end solar installations across Andhra Pradesh and Telangana. We specialize in residential rooftop systems, commercial installations, industrial shed arrays, agricultural solar pumps, and seamless Discom net-metering synchronization with zero-down bank loan assistance.
                 </p>
               </div>
 
-              {/* Guiding Tenets */}
+              {/* Mission & Vision Cards (Page 2) */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                <div className="p-4 rounded-2xl bg-[#F7FAF5] border border-[#55B51F]/15">
-                  <Compass className="w-6 h-6 text-[#55B51F] mb-2" />
-                  <h4 className="font-bold text-[#063B18] text-sm">Our Mission</h4>
-                  <p className="text-xs text-[#718078] mt-1">To accelerate India’s transition to solar energy through engineered turnkey excellence and accessible financing models.</p>
+                <div className="p-4 rounded-2xl bg-[#F7FAF5] border border-[#55B51F]/20 space-y-1.5">
+                  <div className="flex items-center gap-2 text-[#55B51F]">
+                    <Compass className="w-5 h-5" />
+                    <h4 className="font-extrabold text-[#063B18] text-sm">Our Mission</h4>
+                  </div>
+                  <p className="text-xs text-[#718078] leading-relaxed">
+                    To accelerate India's transition to renewable energy through turnkey engineering excellence, transparent pricing, and accessible financing models for every property.
+                  </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-[#F7FAF5] border border-[#55B51F]/15">
-                  <Globe2 className="w-6 h-6 text-[#F5A000] mb-2" />
-                  <h4 className="font-bold text-[#063B18] text-sm">Our Vision</h4>
-                  <p className="text-xs text-[#718078] mt-1">A cleaner, self-reliant future where clean solar power is the default primary energy choice for every roof.</p>
+                <div className="p-4 rounded-2xl bg-[#F7FAF5] border border-[#55B51F]/20 space-y-1.5">
+                  <div className="flex items-center gap-2 text-[#F5A000]">
+                    <Globe2 className="w-5 h-5" />
+                    <h4 className="font-extrabold text-[#063B18] text-sm">Our Vision</h4>
+                  </div>
+                  <p className="text-xs text-[#718078] leading-relaxed">
+                    To establish a greener, carbon-neutral tomorrow where intelligent rooftop solar power is the primary default energy choice across Andhra Pradesh and Telangana.
+                  </p>
                 </div>
               </div>
+
             </ScrollReveal>
 
           </div>
         </div>
       </section>
 
-      {/* Engineering Excellence Standards */}
+      {/* SECTION: Why SAM GREEN POWER SOLUTIONS PVT LTD (Exact Page 2 Heading) */}
       <section className="py-20 bg-[#F7FAF5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <ScrollReveal animation="fade-up" className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-[#55B51F] block mb-2">
+              Page 2 • Core Differentiators
+            </span>
             <h3 className="text-3xl sm:text-4xl font-black text-[#063B18] tracking-tight font-display">
-              Our Technical Engineering Standards
+              Why SAM GREEN POWER SOLUTIONS PVT LTD?
             </h3>
             <p className="mt-3 text-sm sm:text-base text-[#718078]">
-              We adhere to uncompromising engineering protocols to safeguard your asset longevity and energy generation.
+              We combine certified engineering standards with unmatched local support in 16 AP and 12 Telangana districts.
             </p>
           </ScrollReveal>
 
-          <ScrollStagger className="grid grid-cols-1 md:grid-cols-3 gap-8" staggerDelay={120}>
-            <div className="p-8 rounded-3xl bg-white border border-[#55B51F]/20 shadow-sm hover:shadow-xl transition-shadow space-y-4">
+          <ScrollStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" staggerDelay={90}>
+            
+            {/* Reason 1 */}
+            <div className="p-6 rounded-3xl bg-white border border-[#55B51F]/20 shadow-sm hover:shadow-xl transition-all space-y-3">
               <div className="w-12 h-12 rounded-2xl bg-[#063B18] text-[#55B51F] flex items-center justify-center">
+                <Award className="w-6 h-6" />
+              </div>
+              <h4 className="text-lg font-black text-[#063B18]">Tier-1 Equipment Only</h4>
+              <p className="text-xs text-[#718078] leading-relaxed">
+                Exclusively deploying 550W+ Monocrystalline bifacial panels with 25-year performance warranties and high-efficiency smart inverters.
+              </p>
+            </div>
+
+            {/* Reason 2 */}
+            <div className="p-6 rounded-3xl bg-white border border-[#55B51F]/20 shadow-sm hover:shadow-xl transition-all space-y-3">
+              <div className="w-12 h-12 rounded-2xl bg-[#55B51F] text-white flex items-center justify-center">
                 <Zap className="w-6 h-6" />
               </div>
-              <h4 className="text-xl font-extrabold text-[#063B18]">Tier-1 Monocrystalline PV</h4>
-              <p className="text-xs sm:text-sm text-[#718078] leading-relaxed">
-                We exclusively deploy Tier-1 high-wattage (550W+) mono PERC and TopCon bifacial modules featuring superior low-light temperature coefficients and anti-PID technology.
+              <h4 className="text-lg font-black text-[#063B18]">₹1,00,000 Benefit Advantage</h4>
+              <p className="text-xs text-[#718078] leading-relaxed">
+                Full facilitation of ₹78,000 PM Surya Ghar Central subsidy plus ₹22,000 SAM company discount directly applied to your system.
               </p>
-              <ul className="text-xs text-[#101A13]/80 space-y-2 pt-2 border-t border-slate-100">
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#55B51F]" />
-                  <span>22.8%+ Module Efficiency</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#55B51F]" />
-                  <span>25-Year Performance Warranty</span>
-                </li>
-              </ul>
             </div>
 
-            <div className="p-8 rounded-3xl bg-white border border-[#55B51F]/20 shadow-sm hover:shadow-xl transition-shadow space-y-4">
-              <div className="w-12 h-12 rounded-2xl bg-[#063B18] text-[#55B51F] flex items-center justify-center">
-                <ShieldCheck className="w-6 h-6" />
+            {/* Reason 3 */}
+            <div className="p-6 rounded-3xl bg-white border border-[#55B51F]/20 shadow-sm hover:shadow-xl transition-all space-y-3">
+              <div className="w-12 h-12 rounded-2xl bg-[#063B18] text-[#F5A000] flex items-center justify-center">
+                <Wrench className="w-6 h-6" />
               </div>
-              <h4 className="text-xl font-extrabold text-[#063B18]">Structural Wind Rating</h4>
-              <p className="text-xs sm:text-sm text-[#718078] leading-relaxed">
-                Mounting structures are engineered using anodized aluminum and hot-dip galvanized steel certified to withstand cyclonic wind loads up to 170 km/h with zero roof penetration.
+              <h4 className="text-lg font-black text-[#063B18]">5-Year Ongoing Support</h4>
+              <p className="text-xs text-[#718078] leading-relaxed">
+                Proactive Annual Maintenance Contracts (AMC), periodic panel cleaning, Discom net-metering liaison, and 24-hr technician dispatch.
               </p>
-              <ul className="text-xs text-[#101A13]/80 space-y-2 pt-2 border-t border-slate-100">
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#55B51F]" />
-                  <span>Anti-Corrosion Anodization</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#55B51F]" />
-                  <span>Non-Penetrative Ballast Options</span>
-                </li>
-              </ul>
             </div>
 
-            <div className="p-8 rounded-3xl bg-white border border-[#55B51F]/20 shadow-sm hover:shadow-xl transition-shadow space-y-4">
-              <div className="w-12 h-12 rounded-2xl bg-[#063B18] text-[#55B51F] flex items-center justify-center">
-                <Sun className="w-6 h-6 text-[#F5A000]" />
+            {/* Reason 4 */}
+            <div className="p-6 rounded-3xl bg-white border border-[#55B51F]/20 shadow-sm hover:shadow-xl transition-all space-y-3">
+              <div className="w-12 h-12 rounded-2xl bg-[#55B51F] text-[#063B18] flex items-center justify-center">
+                <Users className="w-6 h-6" />
               </div>
-              <h4 className="text-xl font-extrabold text-[#063B18]">Smart Cloud Telemetry</h4>
-              <p className="text-xs sm:text-sm text-[#718078] leading-relaxed">
-                Real-time inverter IoT telemetry delivers mobile app visibility into your daily kilowatt generation, grid export credits, and instant automated fault diagnostics.
+              <h4 className="text-lg font-black text-[#063B18]">28 District Hubs</h4>
+              <p className="text-xs text-[#718078] leading-relaxed">
+                Localized engineering depots in 16 AP districts and 12 Telangana districts for rapid on-site shadow analysis and physical support.
               </p>
-              <ul className="text-xs text-[#101A13]/80 space-y-2 pt-2 border-t border-slate-100">
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#55B51F]" />
-                  <span>24/7 Mobile Generation App</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#55B51F]" />
-                  <span>Automated O&M Health Alerts</span>
-                </li>
-              </ul>
             </div>
+
           </ScrollStagger>
 
         </div>
       </section>
 
-      {/* Action Banner */}
-      <section className="py-16 bg-[#063B18] text-white">
-        <div className="max-w-5xl mx-auto px-4 text-center">
-          <ScrollReveal animation="scale-up" className="space-y-6">
-            <h3 className="text-3xl sm:text-4xl font-black font-display">
-              Ready to Build a Greener Future with Us?
-            </h3>
-            <p className="text-sm sm:text-base text-slate-200 max-w-xl mx-auto">
-              Book a complimentary site survey and receive a customized 3D solar layout with accurate financial ROI projection.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
-              <button
-                onClick={onOpenQuote}
-                className="px-8 py-3.5 rounded-full bg-[#55B51F] hover:bg-[#469A18] text-white font-bold text-sm shadow-lg transition-all cursor-pointer"
-              >
-                Get Free Consultation
-              </button>
-              <Link
-                to="/calculator"
-                className="px-8 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-sm border border-white/20 transition-all cursor-pointer"
-              >
-                Explore Solar Calculator
-              </Link>
+      {/* Corporate Contact Details Section (Page 2 Requirement: Email, Contact number, Address) */}
+      <section className="py-16 bg-white border-t border-slate-200">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="p-8 sm:p-10 rounded-3xl bg-[#063B18] text-white shadow-xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-80 h-80 bg-[#55B51F]/15 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="relative z-10 space-y-6">
+              <div>
+                <span className="text-xs font-extrabold uppercase tracking-widest text-[#55B51F] block mb-1">
+                  Official Corporate Contact Information
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-black font-display text-white">
+                  SAM GREEN POWER SOLUTIONS PRIVATE LIMITED
+                </h3>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-white/15">
+                
+                {/* Address */}
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2 text-[#55B51F]">
+                    <MapPin className="w-4 h-4" />
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-300">Registered Office</span>
+                  </div>
+                  <p className="text-sm font-semibold text-white leading-relaxed">
+                    Door No: 40-1-12, MG Road,<br />
+                    Vijayawada, Andhra Pradesh - 520010<br />
+                    <span className="text-xs text-[#55B51F]">Serving all AP & Telangana</span>
+                  </p>
+                </div>
+
+                {/* Contact Number */}
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2 text-[#55B51F]">
+                    <Phone className="w-4 h-4" />
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-300">Contact Number</span>
+                  </div>
+                  <p className="text-sm font-semibold text-white leading-relaxed">
+                    +91 94901 23456<br />
+                    1800 890 5678 (Toll-Free)<br />
+                    <span className="text-xs text-slate-300">Mon - Sat: 9:00 AM - 7:00 PM</span>
+                  </p>
+                </div>
+
+                {/* Email */}
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2 text-[#55B51F]">
+                    <Mail className="w-4 h-4" />
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-300">Official Email</span>
+                  </div>
+                  <p className="text-sm font-semibold text-white leading-relaxed">
+                    info@samgreenpower.com<br />
+                    sales@samgreenpower.com<br />
+                    <span className="text-xs text-slate-300">24-hr response guarantee</span>
+                  </p>
+                </div>
+
+              </div>
+
+              <div className="pt-4 flex flex-col sm:flex-row items-center gap-4">
+                <button
+                  onClick={onOpenQuote}
+                  className="px-8 py-3.5 rounded-full bg-[#55B51F] hover:bg-[#469A18] text-white font-extrabold text-sm shadow-md transition-all cursor-pointer"
+                >
+                  Book a Free Consultation
+                </button>
+                <Link
+                  to="/locations"
+                  className="px-8 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-sm border border-white/20 transition-all cursor-pointer"
+                >
+                  View All 28 Service Locations
+                </Link>
+              </div>
+
             </div>
-          </ScrollReveal>
+          </div>
         </div>
       </section>
 

@@ -73,47 +73,58 @@ export default function AboutUs() {
           <ScrollReveal animation="fade-left" delay={150} duration={800} className="lg:col-span-6 space-y-6 sm:space-y-8">
             
             <div className="space-y-4">
+              <span className="text-xs font-extrabold uppercase tracking-widest text-[#55B51F] block">
+                Who We Are & What We Do
+              </span>
               <h3 className="text-2xl sm:text-3xl font-extrabold text-[#063B18] tracking-tight leading-snug">
                 Powering Sustainable Transitions with Engineering Precision.
               </h3>
               
               {/* Official Prompt Introduction Text */}
-              <p className="text-base sm:text-lg text-[#101A13]/85 leading-relaxed font-normal">
-                At <strong className="text-[#063B18] font-bold">SAM GREEN POWER SOLUTIONS PRIVATE LIMITED</strong>, we believe in creating a sustainable future through smarter solar energy solutions. We aim to help homes and businesses embrace renewable energy with efficient, reliable, and innovative solar solutions.
-              </p>
+              <div className="p-4 sm:p-5 rounded-2xl bg-[#F7FAF5] border border-[#55B51F]/20">
+                <p className="text-sm sm:text-base text-[#101A13]/90 leading-relaxed font-normal">
+                  At <strong className="text-[#063B18] font-bold">SAM GREEN POWER SOLUTIONS PRIVATE LIMITED</strong>, we believe in creating a sustainable future through smarter solar energy solutions. We aim to help homes and businesses embrace renewable energy with efficient, reliable, and innovative solar solutions.
+                </p>
+              </div>
 
-              <p className="text-sm sm:text-base text-[#718078] leading-relaxed">
-                By integrating cutting-edge photovoltaic technology with rigorous site engineering, our mission is to make solar transition seamless, financially rewarding, and enduring for generations.
+              <p className="text-xs sm:text-sm text-[#718078] leading-relaxed">
+                From residential rooftop systems under the PM Surya Ghar ₹78,000 subsidy scheme to high-capacity commercial plants, we provide turnkey engineering, net metering, and 5-year proactive support across 16 AP districts and 12 Telangana districts.
               </p>
             </div>
 
             {/* Core Value Pillars */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
               <div className="p-4 rounded-2xl bg-[#F7FAF5] border border-[#55B51F]/15 hover:border-[#55B51F]/40 transition-colors">
-                <div className="w-8 h-8 rounded-lg bg-[#063B18] text-[#55B51F] flex items-center justify-center mb-3">
+                <div className="w-8 h-8 rounded-lg bg-[#063B18] text-[#55B51F] flex items-center justify-center mb-2">
                   <Zap className="w-4 h-4" />
                 </div>
-                <h4 className="font-bold text-[#063B18] text-sm sm:text-base">Custom Solar Design</h4>
-                <p className="text-xs text-[#718078] mt-1">Tailored capacity sizing matching exact load curves and roof geometry.</p>
+                <h4 className="font-bold text-[#063B18] text-sm sm:text-base">Our Mission</h4>
+                <p className="text-xs text-[#718078] mt-1">Accelerating renewable transition with zero-down bank loans & transparent EPC excellence.</p>
               </div>
 
               <div className="p-4 rounded-2xl bg-[#F7FAF5] border border-[#55B51F]/15 hover:border-[#55B51F]/40 transition-colors">
-                <div className="w-8 h-8 rounded-lg bg-[#55B51F] text-white flex items-center justify-center mb-3">
+                <div className="w-8 h-8 rounded-lg bg-[#55B51F] text-white flex items-center justify-center mb-2">
                   <Leaf className="w-4 h-4" />
                 </div>
-                <h4 className="font-bold text-[#063B18] text-sm sm:text-base">Ecological Stewardship</h4>
-                <p className="text-xs text-[#718078] mt-1">Directly offsetting metric tonnes of carbon emissions every operational year.</p>
+                <h4 className="font-bold text-[#063B18] text-sm sm:text-base">Our Vision</h4>
+                <p className="text-xs text-[#718078] mt-1">Building an energy-independent India where rooftop solar is the primary default power source.</p>
               </div>
             </div>
 
             {/* Learn More Button */}
-            <div className="pt-2">
+            <div className="pt-2 flex flex-wrap items-center gap-3">
               <Link
                 to="/about"
                 className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-[#063B18] hover:bg-[#0a4d21] text-white text-sm font-bold shadow-md hover:shadow-lg transition-all duration-200 group cursor-pointer"
               >
-                <span>Learn More About Our Vision</span>
+                <span>Read Full Company Profile</span>
                 <ArrowRight className="w-4 h-4 text-[#55B51F] group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link
+                to="/locations"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#F7FAF5] hover:bg-[#55B51F]/10 text-[#063B18] border border-[#55B51F]/30 text-xs font-bold transition-all cursor-pointer"
+              >
+                <span>28 District Depots</span>
               </Link>
             </div>
 

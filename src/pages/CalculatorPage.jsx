@@ -8,7 +8,7 @@ export default function CalculatorPage({ onCalculateQuote }) {
     <div className="bg-[#F7FAF5] pb-20">
       
       {/* Header Banner */}
-      <section className="relative pt-28 pb-14 sm:pt-32 sm:pb-16 bg-[#063B18] text-white overflow-hidden mb-12">
+      <section className="relative pt-32 pb-14 sm:pt-40 sm:pb-16 bg-[#063B18] text-white overflow-hidden mb-12">
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#55B51F]/15 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#F5A000]/15 rounded-full blur-3xl pointer-events-none" />
 

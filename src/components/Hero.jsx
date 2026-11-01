@@ -14,7 +14,7 @@ export default function Hero({ onOpenQuote }) {
   return (
     <section
       id="home"
-      className="relative min-h-[92vh] lg:min-h-screen flex items-center justify-center pt-24 pb-16 md:pt-28 md:pb-20 overflow-hidden"
+      className="relative min-h-[92vh] lg:min-h-screen flex items-center justify-center pt-28 sm:pt-32 lg:pt-28 pb-16 md:pb-20 overflow-hidden"
     >
       {/* Complete Hero Background Image: Solar Panels & Clear Blue Sky */}
       <div className="absolute inset-0 z-0 overflow-hidden">

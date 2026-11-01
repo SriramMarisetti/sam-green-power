@@ -116,11 +116,12 @@ export default function Footer({ onOpenQuote }) {
               {[
                 { name: 'Home', href: '/' },
                 { name: 'About Us', href: '/about' },
-                { name: 'Solutions', href: '/solutions' },
-                { name: 'Why Solar', href: '/why-solar' },
+                { name: 'Our Services', href: '/solutions' },
+                { name: 'Our Projects', href: '/projects' },
                 { name: 'Solar Calculator', href: '/calculator' },
-                { name: 'Projects', href: '/projects' },
-                { name: 'Contact', href: '/contact' },
+                { name: 'Our Locations', href: '/locations' },
+                { name: 'Why Solar & FAQs', href: '/why-solar' },
+                { name: 'Contact Us', href: '/contact' },
               ].map((link) => (
                 <li key={link.name}>
                   <Link
@@ -171,17 +172,18 @@ export default function Footer({ onOpenQuote }) {
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#55B51F] shrink-0 mt-0.5" />
                 <span>
-                  SAM GREEN POWER SOLUTIONS PRIVATE LIMITED<br />
-                  [Registered Office Address Placeholder]
+                  SAM GREEN POWER SOLUTIONS PVT LTD<br />
+                  Door No: 40-1-12, MG Road, Vijayawada, Andhra Pradesh - 520010<br />
+                  <span className="text-[#55B51F] text-[11px] font-semibold">16 Hubs in AP • 12 Hubs in Telangana</span>
                 </span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-[#55B51F] shrink-0" />
-                <span>[Official Support Phone Placeholder]</span>
+                <span>+91 94901 23456 / 1800 890 5678</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-[#55B51F] shrink-0" />
-                <span>[contact@samgreenpower.com Placeholder]</span>
+                <span>info@samgreenpower.com</span>
               </div>
             </div>
 
