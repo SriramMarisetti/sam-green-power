@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Home, Building2, Factory, Wrench, ArrowRight, CheckCircle2, X } from 'lucide-react';
 import { SOLUTIONS_DATA } from '../data/content';
 import { Link } from 'react-router-dom';
@@ -44,7 +45,8 @@ export default function SolarSolutions({ onSelectSolution }) {
           {SOLUTIONS_DATA.map((solution) => (
             <div
               key={solution.id}
-              className="bg-white rounded-3xl overflow-hidden border border-[#55B51F]/20 hover:border-[#55B51F] shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col group transform hover:-translate-y-1.5"
+              onClick={() => setSelectedSolution(solution)}
+              className="bg-white rounded-3xl overflow-hidden border border-[#55B51F]/20 hover:border-[#55B51F] shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col group transform hover:-translate-y-1.5 cursor-pointer"
             >
               {/* Card Image with subtle zoom */}
               <div className="relative h-48 overflow-hidden bg-slate-100">
@@ -118,7 +120,7 @@ export default function SolarSolutions({ onSelectSolution }) {
       </div>
 
       {/* Technical Detail Modal for Selected Solution */}
-      {selectedSolution && (
+      {selectedSolution && createPortal(
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
           <div className="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-[#55B51F]/30 relative max-h-[90vh] overflow-y-auto">
             {/* Close button */}
@@ -177,7 +179,8 @@ export default function SolarSolutions({ onSelectSolution }) {
               </button>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </section>
   );

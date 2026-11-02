@@ -6,9 +6,7 @@ export default function FloatingWhatsApp() {
   const [customMsg, setCustomMsg] = useState('Hello SAM Green Power, I would like to inquire about solar installation.');
 
   const handleSend = () => {
-    // As per instruction: "Include a floating WhatsApp button, but do not invent the company's phone number."
-    const encoded = encodeURIComponent(customMsg);
-    window.open(`https://wa.me/?text=${encoded}`, '_blank');
+    window.open('https://wa.me/message/EOIRUNXSVLOMC1', '_blank');
   };
 
   return (
@@ -30,7 +28,7 @@ export default function FloatingWhatsApp() {
                 <h4 className="text-sm font-bold leading-tight">SAM GREEN POWER</h4>
                 <div className="flex items-center gap-1.5 text-[10px] text-[#55B51F]">
                   <span className="w-2 h-2 rounded-full bg-[#55B51F] inline-block"></span>
-                  <span>Technical Support Helpline</span>
+                  <span>SOLUTIONS PVT. LTD. • Support Helpline</span>
                 </div>
               </div>
             </div>

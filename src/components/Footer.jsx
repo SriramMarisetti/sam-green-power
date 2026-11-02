@@ -5,26 +5,17 @@ import { Link } from 'react-router-dom';
 export default function Footer({ onOpenQuote }) {
   const socialLinks = [
     {
-      name: 'LinkedIn',
-      href: '#',
+      name: 'WhatsApp',
+      href: 'https://wa.me/message/EOIRUNXSVLOMC1',
       svg: (
         <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-          <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.25c-.96 0-1.74.78-1.74 1.74s.78 1.74 1.74 1.74 1.74-.78 1.74-1.74-.78-1.74-1.74-1.74Z" />
-        </svg>
-      )
-    },
-    {
-      name: 'X (Twitter)',
-      href: '#',
-      svg: (
-        <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+          <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.07-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.84-.86 2.05s.88 2.38 1 2.55c.12.17 1.74 2.66 4.21 3.73.59.25 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.23-.17-.48-.29" />
         </svg>
       )
     },
     {
       name: 'Instagram',
-      href: '#',
+      href: 'https://www.instagram.com/samgreenpowersolutions?dlrf=MWZkemJ1cWQ5ZjVoaA==',
       svg: (
         <svg className="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
           <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
@@ -35,7 +26,7 @@ export default function Footer({ onOpenQuote }) {
     },
     {
       name: 'Facebook',
-      href: '#',
+      href: 'https://www.facebook.com/share/1MxBa1kmSQ/',
       svg: (
         <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
           <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
@@ -43,12 +34,11 @@ export default function Footer({ onOpenQuote }) {
       )
     },
     {
-      name: 'YouTube',
-      href: '#',
+      name: 'LinkedIn',
+      href: 'https://www.linkedin.com/company/sam-green-power-solutions-private-limited/',
       svg: (
         <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-          <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z" />
-          <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#063B18" />
+          <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.25c-.96 0-1.74.78-1.74 1.74s.78 1.74 1.74 1.74 1.74-.78 1.74-1.74-.78-1.74-1.74-1.74Z" />
         </svg>
       )
     }
@@ -78,7 +68,7 @@ export default function Footer({ onOpenQuote }) {
                   SAM GREEN POWER
                 </span>
                 <span className="text-[10px] tracking-widest text-[#55B51F] uppercase font-bold block">
-                  SOLUTIONS PRIVATE LIMITED
+                  SOLUTIONS PVT. LTD.
                 </span>
               </div>
             </Link>
@@ -163,27 +153,31 @@ export default function Footer({ onOpenQuote }) {
             </ul>
           </div>
 
-          {/* Col 4: Contact Information Placeholders (3 cols) */}
+          {/* Col 4: Contact Information (3 cols) */}
           <div className="lg:col-span-3 space-y-4">
             <h4 className="text-sm font-extrabold uppercase tracking-wider text-[#55B51F] font-display">
-              Contact Inquiries
+              Corporate Office
             </h4>
             <div className="space-y-3 text-xs sm:text-sm text-slate-300">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#55B51F] shrink-0 mt-0.5" />
                 <span>
-                  SAM GREEN POWER SOLUTIONS PVT LTD<br />
-                  Door No: 40-1-12, MG Road, Vijayawada, Andhra Pradesh - 520010<br />
+                  <strong className="text-white">SAM GREEN POWER SOLUTIONS PVT. LTD.</strong><br />
+                  D No 2-5-127, Ryathu Bazar, NTR Dist, Andhra Pradesh, India, 521456<br />
                   <span className="text-[#55B51F] text-[11px] font-semibold">16 Hubs in AP • 12 Hubs in Telangana</span>
                 </span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-[#55B51F] shrink-0" />
-                <span>+91 94901 23456 / 1800 890 5678</span>
+                <a href="tel:+91701320449" className="hover:text-[#55B51F] transition-colors">
+                  +91 701320449
+                </a>
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-[#55B51F] shrink-0" />
-                <span>info@samgreenpower.com</span>
+                <a href="mailto:Infosamgreenpower@gmail.com" className="hover:text-[#55B51F] transition-colors">
+                  Infosamgreenpower@gmail.com
+                </a>
               </div>
             </div>
 

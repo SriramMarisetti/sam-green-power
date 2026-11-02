@@ -490,15 +490,8 @@ export default function InteractiveSolarCalculator({ onCalculateQuote, isFullPag
                 </span>
               </div>
 
-              {/* Highlighted Cost Breakdown Cards */}
+              {/* Highlighted Subsidy & Discount Benefits */}
               <div className="space-y-2.5">
-                
-                {/* Total System Value */}
-                <div className="flex justify-between items-center text-xs text-[#718078] py-1 border-b border-slate-200">
-                  <span>Standard EPC System Value:</span>
-                  <span className="font-bold text-[#101A13]">₹{estimatedTotalCost.toLocaleString('en-IN')}</span>
-                </div>
-
                 {/* Scheme Subsidy: ₹78,000/- (Client Requirement) */}
                 <div className="p-3 rounded-xl bg-white border border-[#55B51F]/30 flex items-center justify-between">
                   <div>
@@ -508,7 +501,7 @@ export default function InteractiveSolarCalculator({ onCalculateQuote, isFullPag
                     <span className="text-[11px] text-[#718078]">Direct DBT to bank account</span>
                   </div>
                   <span className="text-xl font-black text-[#55B51F]">
-                    - ₹{schemeSubsidy.toLocaleString('en-IN')}/-
+                    ₹{schemeSubsidy.toLocaleString('en-IN')}/-
                   </span>
                 </div>
 
@@ -521,29 +514,22 @@ export default function InteractiveSolarCalculator({ onCalculateQuote, isFullPag
                     <span className="text-[11px] text-[#718078]">Exclusive company rebate</span>
                   </div>
                   <span className="text-xl font-black text-[#F5A000]">
-                    - ₹{samDiscount.toLocaleString('en-IN')}/-
+                    ₹{samDiscount.toLocaleString('en-IN')}/-
                   </span>
                 </div>
 
                 {/* Total Benefit: ₹1,00,000 */}
-                <div className="p-3.5 rounded-xl bg-[#063B18] text-white flex items-center justify-between">
+                <div className="p-3.5 rounded-xl bg-[#063B18] text-white flex items-center justify-between shadow-sm">
                   <span className="text-xs font-bold text-slate-200">Total Benefits Deducted:</span>
                   <span className="text-lg font-black text-[#55B51F]">
                     ₹{totalBenefit.toLocaleString('en-IN')} Saved!
                   </span>
                 </div>
 
-                {/* Net Cost */}
-                <div className="pt-2 flex justify-between items-center text-sm font-extrabold text-[#063B18]">
-                  <span>Your Net Outlay:</span>
-                  <span className="text-2xl font-black text-[#063B18]">
-                    ₹{netEffectiveCost.toLocaleString('en-IN')}*
+                <div className="p-3 rounded-xl bg-[#F7FAF5] border border-slate-200 text-center">
+                  <span className="text-xs text-[#718078] block">
+                    Zero-down bank loan available • Exact customized pricing provided upon free on-site survey
                   </span>
-                </div>
-
-                <div className="flex justify-between items-center text-xs text-[#718078] pt-1">
-                  <span>Payback Period:</span>
-                  <span className="font-extrabold text-[#55B51F] text-sm">~{paybackYears} Years</span>
                 </div>
               </div>
 

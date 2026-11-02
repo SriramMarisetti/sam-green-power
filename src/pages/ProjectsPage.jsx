@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Sparkles, MapPin, Zap, ArrowRight, Eye, X } from 'lucide-react';
 import { PROJECTS_DATA } from '../data/content';
 import ScrollReveal, { ScrollStagger } from '../components/ScrollReveal';
@@ -124,7 +125,7 @@ export default function ProjectsPage({ onOpenQuote }) {
       </section>
 
       {/* Lightbox / Project Details Modal */}
-      {activeModalProject && (
+      {activeModalProject && createPortal(
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md animate-in fade-in duration-200">
           <div className="bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl border border-[#55B51F]/30 relative max-h-[90vh] flex flex-col">
             <div className="relative h-64 sm:h-80 w-full shrink-0">
@@ -193,7 +194,8 @@ export default function ProjectsPage({ onOpenQuote }) {
               </div>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
 
     </div>

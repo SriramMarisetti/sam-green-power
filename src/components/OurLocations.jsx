@@ -77,7 +77,8 @@ export default function OurLocations({ onBookInCity }) {
           {filtered.map((loc) => (
             <div
               key={loc.id}
-              className="p-5 rounded-2xl bg-white border border-[#55B51F]/15 hover:border-[#55B51F] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group transform hover:-translate-y-1"
+              onClick={() => onBookInCity && onBookInCity(loc.city, activeState === 'ap' ? 'AP' : 'Telangana')}
+              className="p-5 rounded-2xl bg-white border border-[#55B51F]/15 hover:border-[#55B51F] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group transform hover:-translate-y-1 cursor-pointer"
             >
               <div>
                 <div className="flex items-center justify-between mb-3">

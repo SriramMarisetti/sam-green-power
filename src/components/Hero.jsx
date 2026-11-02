@@ -21,12 +21,12 @@ export default function Hero({ onOpenQuote }) {
         <img
           src="/images/solar-sky-hero.jpg"
           alt="Solar Panels under Clear Blue Sky"
-          className="w-full h-full object-cover object-center scale-105 transform animate-pulse duration-[10000ms]"
+          className="w-full h-full object-cover object-[75%_center] lg:object-[82%_center] scale-105 transform animate-pulse duration-[10000ms]"
         />
 
         {/* Sophisticated Multi-Layered Brand Gradient Overlays */}
-        {/* Layer 1: Left-to-right deep-green shadow for text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#063B18]/95 via-[#063B18]/80 to-[#063B18]/30 lg:to-transparent" />
+        {/* Layer 1: Left-to-right deep-green shadow for text contrast while letting blue panels shine on right */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#063B18]/95 via-[#063B18]/70 to-[#063B18]/20 lg:to-transparent" />
 
         {/* Layer 2: Top header shadow */}
         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#063B18]/80 to-transparent" />
@@ -115,87 +115,89 @@ export default function Hero({ onOpenQuote }) {
 
           </ScrollReveal>
 
-          {/* Right Column: Premium Solar Telemetry & Live Harvest Showcase Card */}
+          {/* Right Column: Premium Solar Installation Showcase Card */}
           <ScrollReveal animation="fade-left" delay={200} duration={800} className="lg:col-span-5 relative">
-            <div className="relative rounded-3xl p-6 sm:p-8 bg-white/90 lg:bg-white/95 backdrop-blur-xl border border-white/40 shadow-2xl space-y-6 text-[#101A13]">
+            <div className="relative rounded-3xl overflow-hidden bg-white/95 backdrop-blur-xl border border-white/50 shadow-2xl space-y-4 text-[#101A13]">
               
-              {/* Header with Live Status Indicator */}
-              <div className="flex items-center justify-between pb-4 border-b border-slate-100">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-2xl bg-[#063B18] text-[#55B51F] flex items-center justify-center p-2.5 shadow-md">
-                    <Sun className="w-full h-full text-[#F5A000]" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#55B51F] block">
-                      Live PV Generation
-                    </span>
-                    <h3 className="text-base font-extrabold text-[#063B18]">
-                      Smart Solar Array
-                    </h3>
-                  </div>
+              {/* Vibrant Solar Installation Photo - Clear Photovoltaic Panels Under Clear Sky */}
+              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-200">
+                <img
+                  src="/images/residential-solar.jpg"
+                  alt="High-Efficiency Rooftop Solar Panels"
+                  className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#063B18]/90 via-[#063B18]/30 to-transparent" />
+                
+                <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md text-[11px] font-black text-[#063B18] shadow-sm flex items-center gap-1.5 border border-[#55B51F]/30">
+                  <Sun className="w-3.5 h-3.5 text-[#F5A000]" />
+                  <span>Tier-1 Monocrystalline PV</span>
                 </div>
 
-                <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#55B51F]/15 text-[#063B18] text-xs font-bold border border-[#55B51F]/30">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#55B51F] opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#55B51F]"></span>
+                <div className="absolute top-3 right-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#55B51F] text-white text-[11px] font-bold shadow-md">
+                  <span className="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                  <span>Active Solar Harvest</span>
+                </div>
+
+                <div className="absolute bottom-3 left-4 right-4 text-white">
+                  <span className="text-[10px] uppercase tracking-wider font-extrabold text-[#55B51F] block">
+                    Pristine Rooftop Installation
                   </span>
-                  <span>Active Yield</span>
+                  <p className="text-sm font-bold text-white drop-shadow-sm">
+                    Monocrystalline Solar Panels Generating Clean Power
+                  </p>
                 </div>
               </div>
 
               {/* Real-Time Metrics Grid */}
-              <div className="grid grid-cols-2 gap-3.5">
-                <div className="p-4 rounded-2xl bg-[#F7FAF5] border border-[#55B51F]/20">
-                  <span className="text-[10px] uppercase font-bold text-[#718078] block tracking-wider">
-                    Instant Output
-                  </span>
-                  <div className="text-2xl sm:text-3xl font-black text-[#063B18] font-display mt-0.5">
-                    8.42 <span className="text-sm font-bold text-[#55B51F]">kW</span>
+              <div className="px-5 pb-5 space-y-4">
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="p-3.5 rounded-2xl bg-[#F7FAF5] border border-[#55B51F]/20">
+                    <span className="text-[10px] uppercase font-bold text-[#718078] block tracking-wider">
+                      Instant Output
+                    </span>
+                    <div className="text-2xl font-black text-[#063B18] font-display mt-0.5">
+                      8.42 <span className="text-xs font-bold text-[#55B51F]">kW</span>
+                    </div>
+                    <span className="text-[10px] text-[#55B51F] font-semibold mt-0.5 block">
+                      ▲ Peak generation
+                    </span>
                   </div>
-                  <span className="text-[11px] text-[#55B51F] font-semibold mt-1 block">
-                    ▲ Peak generation
-                  </span>
-                </div>
 
-                <div className="p-4 rounded-2xl bg-[#F7FAF5] border border-[#55B51F]/20">
-                  <span className="text-[10px] uppercase font-bold text-[#718078] block tracking-wider">
-                    Sun Irradiance
-                  </span>
-                  <div className="text-2xl sm:text-3xl font-black text-[#F5A000] font-display mt-0.5">
-                    985 <span className="text-sm font-bold text-[#718078]">W/m²</span>
+                  <div className="p-3.5 rounded-2xl bg-[#F7FAF5] border border-[#55B51F]/20">
+                    <span className="text-[10px] uppercase font-bold text-[#718078] block tracking-wider">
+                      Sun Irradiance
+                    </span>
+                    <div className="text-2xl font-black text-[#F5A000] font-display mt-0.5">
+                      985 <span className="text-xs font-bold text-[#718078]">W/m²</span>
+                    </div>
+                    <span className="text-[10px] text-[#718078] font-medium mt-0.5 block">
+                      Clear sky harvest
+                    </span>
                   </div>
-                  <span className="text-[11px] text-[#718078] font-medium mt-1 block">
-                    Clear sky harvest
-                  </span>
                 </div>
-              </div>
 
-              {/* Progress & Efficiency Bar */}
-              <div className="space-y-2 p-4 rounded-2xl bg-[#063B18] text-white">
-                <div className="flex justify-between items-center text-xs">
-                  <span className="text-slate-300 font-medium">Photovoltaic Efficiency</span>
-                  <span className="font-extrabold text-[#55B51F]">22.8% Conversion</span>
+                {/* Progress & Efficiency Bar */}
+                <div className="space-y-1.5 p-3.5 rounded-2xl bg-[#063B18] text-white">
+                  <div className="flex justify-between items-center text-xs">
+                    <span className="text-slate-300 font-medium">Photovoltaic Efficiency</span>
+                    <span className="font-extrabold text-[#55B51F]">22.8% Conversion</span>
+                  </div>
+                  <div className="h-1.5 w-full bg-white/20 rounded-full overflow-hidden">
+                    <div className="h-full bg-gradient-to-r from-[#55B51F] to-[#94E662] w-[88%] rounded-full animate-pulse" />
+                  </div>
                 </div>
-                <div className="h-2 w-full bg-white/20 rounded-full overflow-hidden">
-                  <div className="h-full bg-gradient-to-r from-[#55B51F] to-[#F5A000] w-[92%] rounded-full shadow-sm" />
-                </div>
-                <div className="flex justify-between items-center text-[10px] text-slate-300 pt-1">
-                  <span>Carbon Offset: ~1.3 T/kW/yr</span>
-                  <span className="text-[#F5A000] font-bold">Tier-1 Monocrystalline</span>
-                </div>
-              </div>
 
-              {/* Action Prompt */}
-              <div className="pt-1">
-                <button
-                  onClick={onOpenQuote}
-                  className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-2xl bg-[#55B51F] hover:bg-[#469A18] text-white text-xs font-extrabold transition-all duration-200 shadow-md cursor-pointer"
-                >
-                  <Sparkles className="w-3.5 h-3.5" />
-                  <span>Estimate Your Rooftop Solar Potential</span>
-                  <ArrowRight className="w-3.5 h-3.5 ml-1" />
-                </button>
+                {/* Action Prompt */}
+                <div className="pt-1">
+                  <button
+                    onClick={onOpenQuote}
+                    className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-2xl bg-[#55B51F] hover:bg-[#469A18] text-white text-xs font-extrabold transition-all duration-200 shadow-md cursor-pointer"
+                  >
+                    <Sparkles className="w-3.5 h-3.5" />
+                    <span>Estimate Your Rooftop Solar Potential</span>
+                    <ArrowRight className="w-3.5 h-3.5 ml-1" />
+                  </button>
+                </div>
               </div>
 
             </div>

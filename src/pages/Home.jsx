@@ -9,6 +9,7 @@ import ProjectShowcase from '../components/ProjectShowcase';
 import OurLocations from '../components/OurLocations';
 import CallToAction from '../components/CallToAction';
 import ContactSection from '../components/ContactSection';
+import HomeFaqSection from '../components/HomeFaqSection';
 
 export default function Home({ onOpenQuote, onSelectSolution, onCalculateQuote, contactSolution }) {
   const handleBookInCity = (city, state) => {
@@ -51,6 +52,9 @@ export default function Home({ onOpenQuote, onSelectSolution, onCalculateQuote, 
 
       {/* Contact Section */}
       <ContactSection prefilledSolution={contactSolution} />
+
+      {/* Frequently Asked Questions (Ending before the Footer) */}
+      <HomeFaqSection />
     </>
   );
 }

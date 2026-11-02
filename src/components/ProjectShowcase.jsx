@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Sparkles, MapPin, Zap, ArrowRight, Eye, X } from 'lucide-react';
 import { PROJECTS_DATA } from '../data/content';
 import { Link } from 'react-router-dom';
@@ -134,7 +135,7 @@ export default function ProjectShowcase() {
       </div>
 
       {/* Lightbox / Project Details Modal */}
-      {activeModalProject && (
+      {activeModalProject && createPortal(
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md animate-in fade-in duration-200">
           <div className="bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl border border-[#55B51F]/30 relative max-h-[90vh] flex flex-col">
             
@@ -149,7 +150,7 @@ export default function ProjectShowcase() {
               
               <button
                 onClick={() => setActiveModalProject(null)}
-                className="absolute top-4 right-4 p-2 rounded-full bg-white/90 hover:bg-white text-black transition-colors shadow-md"
+                className="absolute top-4 right-4 p-2 rounded-full bg-white/90 hover:bg-white text-black transition-colors shadow-md cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -190,7 +191,7 @@ export default function ProjectShowcase() {
               <div className="pt-2">
                 <button
                   onClick={() => setActiveModalProject(null)}
-                  className="w-full py-3 rounded-full bg-[#063B18] text-white text-xs font-bold hover:bg-[#0a4d21] transition-colors"
+                  className="w-full py-3 rounded-full bg-[#063B18] text-white text-xs font-bold hover:bg-[#0a4d21] transition-colors cursor-pointer"
                 >
                   Close Inspection
                 </button>
@@ -198,7 +199,8 @@ export default function ProjectShowcase() {
             </div>
 
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </section>
   );

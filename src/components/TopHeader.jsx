@@ -5,7 +5,7 @@ export default function TopHeader({ isScrolled = false, isTransparent = false })
   const socialLinks = [
     {
       name: 'WhatsApp',
-      href: 'https://wa.me/919490123456?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20SAM%20Green%20Power%20Solar%20Solutions',
+      href: 'https://wa.me/message/EOIRUNXSVLOMC1',
       color: 'hover:text-[#25D366] hover:bg-[#25D366]/20',
       svg: (
         <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -15,7 +15,7 @@ export default function TopHeader({ isScrolled = false, isTransparent = false })
     },
     {
       name: 'Instagram',
-      href: 'https://instagram.com',
+      href: 'https://www.instagram.com/samgreenpowersolutions?dlrf=MWZkemJ1cWQ5ZjVoaA==',
       color: 'hover:text-[#E4405F] hover:bg-[#E4405F]/20',
       svg: (
         <svg className="w-3.5 h-3.5 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
@@ -27,7 +27,7 @@ export default function TopHeader({ isScrolled = false, isTransparent = false })
     },
     {
       name: 'Facebook',
-      href: 'https://facebook.com',
+      href: 'https://www.facebook.com/share/1MxBa1kmSQ/',
       color: 'hover:text-[#1877F2] hover:bg-[#1877F2]/20',
       svg: (
         <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -37,32 +37,11 @@ export default function TopHeader({ isScrolled = false, isTransparent = false })
     },
     {
       name: 'LinkedIn',
-      href: 'https://linkedin.com',
+      href: 'https://www.linkedin.com/company/sam-green-power-solutions-private-limited/',
       color: 'hover:text-[#0A66C2] hover:bg-[#0A66C2]/20',
       svg: (
         <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
           <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.25c-.96 0-1.74.78-1.74 1.74s.78 1.74 1.74 1.74 1.74-.78 1.74-1.74-.78-1.74-1.74-1.74Z" />
-        </svg>
-      )
-    },
-    {
-      name: 'YouTube',
-      href: 'https://youtube.com',
-      color: 'hover:text-[#FF0000] hover:bg-[#FF0000]/20',
-      svg: (
-        <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-          <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z" />
-          <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="white" />
-        </svg>
-      )
-    },
-    {
-      name: 'X (Twitter)',
-      href: 'https://x.com',
-      color: 'hover:text-white hover:bg-white/20',
-      svg: (
-        <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
         </svg>
       )
     }
@@ -83,7 +62,7 @@ export default function TopHeader({ isScrolled = false, isTransparent = false })
           {/* Mobile Tap-to-Call */}
           <div className="flex items-center gap-2">
             <a
-              href="tel:+919490123456"
+              href="tel:+91701320449"
               className="inline-flex items-center gap-1.5 font-bold hover:text-[#55B51F] transition-colors cursor-pointer"
               title="Call SAM Green Power"
             >
@@ -91,7 +70,7 @@ export default function TopHeader({ isScrolled = false, isTransparent = false })
                 <Phone className="w-2.5 h-2.5" />
               </div>
               <span className="tracking-tight text-white font-sans text-xs">
-                +91 94901 23456
+                +91 701320449
               </span>
             </a>
 

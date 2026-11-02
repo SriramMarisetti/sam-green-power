@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { X, CheckCircle2, ShieldCheck, ArrowRight, Sparkles } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
@@ -14,13 +15,28 @@ export default function ConsultationModal({ isOpen, onClose, initialData }) {
     mobile: '',
     email: '',
     solarNeed: initialData?.propertyType?.includes('Commercial') ? 'Commercial' : 'Residential',
-    state: 'AP',
+    state: initialData?.state || 'AP',
     monthlyBill: '2000 - 2500',
-    location: '',
+    location: initialData?.location || initialData?.city || '',
   });
 
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+
+  // Synchronize initialData when location card or sizing tool is clicked
+  useEffect(() => {
+    if (initialData) {
+      setFormData((prev) => ({
+        ...prev,
+        solarNeed: initialData.propertyType?.includes('Commercial')
+          ? 'Commercial'
+          : (initialData.solarNeed || prev.solarNeed),
+        state: initialData.state || prev.state,
+        location: initialData.location || initialData.city || prev.location,
+        monthlyBill: initialData.monthlyBill || prev.monthlyBill,
+      }));
+    }
+  }, [initialData, isOpen]);
 
   if (!isOpen) return null;
 
@@ -65,7 +81,7 @@ export default function ConsultationModal({ isOpen, onClose, initialData }) {
     onClose();
   };
 
-  return (
+  return createPortal(
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md animate-in fade-in duration-200">
       <div className="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border-2 border-[#55B51F]/30 relative max-h-[92vh] overflow-y-auto">
         
@@ -296,6 +312,7 @@ export default function ConsultationModal({ isOpen, onClose, initialData }) {
           </div>
         )}
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

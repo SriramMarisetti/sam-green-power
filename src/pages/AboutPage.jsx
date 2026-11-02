@@ -208,11 +208,11 @@ export default function AboutPage({ onOpenQuote }) {
                 <div className="space-y-2">
                   <div className="flex items-center gap-2 text-[#55B51F]">
                     <MapPin className="w-4 h-4" />
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-300">Registered Office</span>
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-300">Corporate Office Address</span>
                   </div>
                   <p className="text-sm font-semibold text-white leading-relaxed">
-                    Door No: 40-1-12, MG Road,<br />
-                    Vijayawada, Andhra Pradesh - 520010<br />
+                    D No 2-5-127, Ryathu Bazar, NTR Dist,<br />
+                    Andhra Pradesh, India, 521456<br />
                     <span className="text-xs text-[#55B51F]">Serving all AP & Telangana</span>
                   </p>
                 </div>
@@ -224,9 +224,10 @@ export default function AboutPage({ onOpenQuote }) {
                     <span className="text-xs font-bold uppercase tracking-wider text-slate-300">Contact Number</span>
                   </div>
                   <p className="text-sm font-semibold text-white leading-relaxed">
-                    +91 94901 23456<br />
-                    1800 890 5678 (Toll-Free)<br />
-                    <span className="text-xs text-slate-300">Mon - Sat: 9:00 AM - 7:00 PM</span>
+                    <a href="tel:+91701320449" className="hover:text-[#55B51F] transition-colors">
+                      +91 701320449
+                    </a><br />
+                    <span className="text-xs text-slate-300">Mon - Sat: 9:00 AM - 6:30 PM</span>
                   </p>
                 </div>
 
@@ -234,11 +235,12 @@ export default function AboutPage({ onOpenQuote }) {
                 <div className="space-y-2">
                   <div className="flex items-center gap-2 text-[#55B51F]">
                     <Mail className="w-4 h-4" />
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-300">Official Email</span>
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-300">Official Mail ID</span>
                   </div>
                   <p className="text-sm font-semibold text-white leading-relaxed">
-                    info@samgreenpower.com<br />
-                    sales@samgreenpower.com<br />
+                    <a href="mailto:Infosamgreenpower@gmail.com" className="hover:text-[#55B51F] transition-colors">
+                      Infosamgreenpower@gmail.com
+                    </a><br />
                     <span className="text-xs text-slate-300">24-hr response guarantee</span>
                   </p>
                 </div>

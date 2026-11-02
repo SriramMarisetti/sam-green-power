@@ -3,7 +3,7 @@ import { Mail, Phone, MapPin, Send, CheckCircle2, Clock, MessageSquare } from 'l
 import confetti from 'canvas-confetti';
 import ScrollReveal from './ScrollReveal';
 
-export default function ContactSection({ prefilledSolution }) {
+export default function ContactSection({ prefilledSolution, hideHeader = false }) {
   const [formData, setFormData] = useState({
     fullName: '',
     phoneNumber: '',
@@ -52,18 +52,20 @@ export default function ContactSection({ prefilledSolution }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <ScrollReveal animation="fade-up" className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#55B51F]/10 border border-[#55B51F]/20 text-[#063B18] text-xs font-bold uppercase tracking-wider mb-4">
-            <MessageSquare className="w-3.5 h-3.5 text-[#55B51F]" />
-            <span>Connect with Engineering Specialists</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#063B18] tracking-tight font-display">
-            Let's Power Your Future Together.
-          </h2>
-          <p className="mt-4 text-base sm:text-lg text-[#718078] leading-relaxed">
-            Reach out for a personalized solar feasibility consultation, rooftop assessment, or turnkey project inquiry.
-          </p>
-        </ScrollReveal>
+        {!hideHeader && (
+          <ScrollReveal animation="fade-up" className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#55B51F]/10 border border-[#55B51F]/20 text-[#063B18] text-xs font-bold uppercase tracking-wider mb-4">
+              <MessageSquare className="w-3.5 h-3.5 text-[#55B51F]" />
+              <span>Connect with Engineering Specialists</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#063B18] tracking-tight font-display">
+              Let's Power Your Future Together.
+            </h2>
+            <p className="mt-4 text-base sm:text-lg text-[#718078] leading-relaxed">
+              Reach out for a personalized solar feasibility consultation, rooftop assessment, or turnkey project inquiry.
+            </p>
+          </ScrollReveal>
+        )}
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
@@ -205,45 +207,49 @@ export default function ContactSection({ prefilledSolution }) {
                 <span className="text-xs font-bold text-[#55B51F] uppercase tracking-wider block mb-1">
                   SAM GREEN POWER
                 </span>
-                <h4 className="text-xl font-black text-white">
-                  Corporate Office & Engineering Center
+                <h4 className="text-xl font-black text-white font-display">
+                  SOLUTIONS PVT. LTD.
                 </h4>
+                <p className="text-xs text-slate-300 mt-1">Corporate Office & Engineering Center</p>
               </div>
 
               <div className="space-y-4 pt-2 border-t border-white/10 text-sm">
-                {/* Business Address Placeholder */}
+                {/* Business Address */}
                 <div className="flex items-start gap-3.5">
                   <div className="w-9 h-9 rounded-xl bg-white/10 text-[#55B51F] flex items-center justify-center shrink-0">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-[10px] uppercase font-bold text-slate-300 block">Registered Address</span>
+                    <span className="text-[10px] uppercase font-bold text-slate-300 block">Corporate Office Address</span>
                     <p className="text-white/90 font-medium">
-                      SAM GREEN POWER SOLUTIONS PRIVATE LIMITED<br />
-                      [Official Business Address / Headquarters Placeholder]
+                      D No 2-5-127, Ryathu Bazar, NTR Dist, Andhra Pradesh, India, 521456
                     </p>
                   </div>
                 </div>
 
-                {/* Contact Number Placeholder */}
+                {/* Contact Number */}
                 <div className="flex items-start gap-3.5">
                   <div className="w-9 h-9 rounded-xl bg-white/10 text-[#55B51F] flex items-center justify-center shrink-0">
                     <Phone className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-[10px] uppercase font-bold text-slate-300 block">Helpline & Inquiries</span>
-                    <p className="text-white/90 font-medium">[Official Contact Number Placeholder]</p>
+                    <span className="text-[10px] uppercase font-bold text-slate-300 block">Contact Number</span>
+                    <a href="tel:+91701320449" className="text-white/90 font-bold hover:text-[#55B51F] transition-colors">
+                      +91 701320449
+                    </a>
                   </div>
                 </div>
 
-                {/* Email Address Placeholder */}
+                {/* Email Address */}
                 <div className="flex items-start gap-3.5">
                   <div className="w-9 h-9 rounded-xl bg-white/10 text-[#55B51F] flex items-center justify-center shrink-0">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-[10px] uppercase font-bold text-slate-300 block">Email Inquiries</span>
-                    <p className="text-white/90 font-medium">[contact@samgreenpower.com Placeholder]</p>
+                    <span className="text-[10px] uppercase font-bold text-slate-300 block">Official Mail ID</span>
+                    <a href="mailto:Infosamgreenpower@gmail.com" className="text-white/90 font-bold hover:text-[#55B51F] transition-colors">
+                      Infosamgreenpower@gmail.com
+                    </a>
                   </div>
                 </div>
 

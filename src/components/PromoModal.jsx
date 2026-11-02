@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { X, CheckCircle2, ShieldCheck, ArrowRight, Zap, Sparkles, MapPin, Phone, Mail } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
@@ -72,7 +73,7 @@ export default function PromoModal({ isOpen, onClose }) {
     onClose();
   };
 
-  return (
+  return createPortal(
     <div data-testid="promo-modal" className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md animate-in fade-in duration-200">
       <div className="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl border-2 border-[#55B51F]/30 relative max-h-[92vh] overflow-y-auto">
         
@@ -132,7 +133,7 @@ export default function PromoModal({ isOpen, onClose }) {
                   <span>Limited Period Solar Offer</span>
                 </span>
                 <h3 className="text-xl sm:text-2xl font-black text-[#063B18] font-display mt-0.5">
-                  SAM GREEN POWER SOLUTIONS
+                  SAM GREEN POWER SOLUTIONS PVT. LTD.
                 </h3>
               </div>
             </div>
@@ -443,7 +444,8 @@ export default function PromoModal({ isOpen, onClose }) {
         )}
 
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
 

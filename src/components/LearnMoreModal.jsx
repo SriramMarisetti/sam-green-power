@@ -1,10 +1,11 @@
 import React from 'react';
+import { createPortal } from 'react-dom';
 import { X, CheckCircle2 } from 'lucide-react';
 
 export default function LearnMoreModal({ isOpen, onClose, onOpenQuote }) {
   if (!isOpen) return null;
 
-  return (
+  return createPortal(
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md animate-in fade-in duration-200">
       <div className="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-[#55B51F]/30 relative max-h-[92vh] overflow-y-auto">
         <button
@@ -92,6 +93,7 @@ export default function LearnMoreModal({ isOpen, onClose, onOpenQuote }) {
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

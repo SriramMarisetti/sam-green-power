@@ -28,8 +28,8 @@ export default function ContactPage({ prefilledSolution }) {
         </div>
       </section>
 
-      {/* Main Contact Section */}
-      <ContactSection prefilledSolution={prefilledSolution} />
+      {/* Main Contact Section (Header hidden to prevent duplicate headings) */}
+      <ContactSection prefilledSolution={prefilledSolution} hideHeader={true} />
 
       {/* Turnaround Protocol Guarantees */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">

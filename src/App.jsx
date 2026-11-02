@@ -64,10 +64,10 @@ function AppContent() {
 
       {/* Main Website Wrapper with Smooth Fade-Up Animation */}
       <div
-        className={`flex-1 transition-all duration-1000 ease-out transform ${
+        className={`flex-1 transition-all duration-1000 ease-out ${
           siteRevealed
-            ? 'opacity-100 translate-y-0 filter-none'
-            : 'opacity-0 translate-y-12 blur-[1px]'
+            ? 'opacity-100 filter-none'
+            : 'opacity-0 translate-y-12 blur-[1px] transform'
         }`}
       >
         <ScrollToTop />

@@ -66,21 +66,18 @@ export default function Navbar({ onOpenQuote }) {
               </div>
               <div className="flex flex-col">
                 <span
-                  className={`text-base sm:text-xl font-black tracking-tight leading-tight flex items-center gap-1.5 font-display transition-colors ${
+                  className={`text-base sm:text-xl font-black tracking-tight leading-tight font-display transition-colors ${
                     !isTransparent ? 'text-[#063B18]' : 'text-white drop-shadow-sm'
                   }`}
                 >
-                  SAM
-                  <span className="text-[#55B51F] text-[10px] sm:text-xs font-semibold px-1.5 py-0.5 rounded bg-[#55B51F]/15 border border-[#55B51F]/30">
-                    GREEN POWER
-                  </span>
+                  SAM GREEN POWER
                 </span>
                 <span
-                  className={`text-[8px] sm:text-[10px] tracking-wider uppercase font-bold transition-colors ${
-                    !isTransparent ? 'text-[#718078]' : 'text-slate-200 drop-shadow-sm'
+                  className={`text-[9px] sm:text-[10px] tracking-wider uppercase font-extrabold transition-colors ${
+                    !isTransparent ? 'text-[#55B51F]' : 'text-emerald-300 drop-shadow-sm'
                   }`}
                 >
-                  SOLUTIONS PRIVATE LIMITED
+                  SOLUTIONS PVT. LTD.
                 </span>
               </div>
             </Link>
@@ -158,13 +155,13 @@ export default function Navbar({ onOpenQuote }) {
                 />
                 <div>
                   <p className="font-extrabold text-[#063B18] text-xs">SAM GREEN POWER</p>
-                  <p className="text-[10px] text-[#718078]">Clean Energy. Better Future.</p>
+                  <p className="text-[10px] text-[#55B51F] font-bold">SOLUTIONS PVT. LTD.</p>
                 </div>
               </div>
 
               {/* Call directly */}
               <a
-                href="tel:+919490123456"
+                href="tel:+91701320449"
                 className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-[#55B51F]/15 text-[#063B18] text-xs font-bold"
               >
                 <Phone className="w-3 h-3 text-[#55B51F]" />
