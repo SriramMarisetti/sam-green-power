@@ -18,7 +18,7 @@ export default function AboutUs() {
             <span>About SAM Green Power</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#063B18] tracking-tight font-display">
-            Clean Energy. Smarter Living. Better Future.
+            Clean Energy. Better Future.
           </h2>
           <p className="mt-4 text-base sm:text-lg text-[#718078] leading-relaxed">
             Pioneering engineering excellence in solar photovoltaic installations for homes, commercial establishments, and industrial enterprises.

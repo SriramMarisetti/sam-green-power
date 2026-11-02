@@ -74,7 +74,7 @@ export default function Footer({ onOpenQuote }) {
             </Link>
 
             <p className="text-sm text-slate-300 leading-relaxed max-w-sm">
-              Empowering homes, commercial facilities, and industries with intelligent, durable solar photovoltaic energy solutions. Clean Energy. Smarter Living. Better Future.
+              Empowering homes, commercial facilities, and industries with intelligent, durable solar photovoltaic energy solutions. Clean Energy. Better Future.
             </p>
 
             {/* Social Media Links */}

@@ -1,7 +1,7 @@
 /**
  * Official Website Content & Configurations
  * SAM GREEN POWER SOLUTIONS PRIVATE LIMITED
- * Clean Energy • Smarter Living • Better Future
+ * Clean Energy • Better Future
  */
 
 export const BRAND_COLORS = {
@@ -26,7 +26,7 @@ export const SOLUTIONS_DATA = [
       'Engineered for RCC terraces, Mangalore tiled roofs, and modern villas',
       'Eligible for PM Surya Ghar subsidy up to ₹78,000 + ₹22,000 SAM discount',
       'Net-metering integration with AP & Telangana Discoms (APEPDCL, APSPDCL, TSSPDCL, TSNPDCL)',
-      '25-year linear performance warranty on Tier-1 monocrystalline panels',
+      '30-Year linear performance warranty on Tier-1 monocrystalline panels',
       'Mobile app for real-time power generation monitoring'
     ],
     idealFor: 'Independent villas, row houses, gated communities, and residential bungalows',
@@ -269,10 +269,10 @@ export const HOW_IT_WORKS = [
     deliverables: [
       'Dedicated relationship manager & priority ticket resolution',
       '24-Hour on-site engineering technician dispatch across 28 districts',
-      'Full liaison for manufacturer 25-year panel performance claims'
+      'Full liaison for manufacturer 30-Year panel performance claims'
     ],
     keyBenefit: '5 full years of zero maintenance headaches backed by SAM Green Power.',
-    detail: 'Dedicated customer support and rapid on-site technician dispatch for 5 continuous years, backing your 25-year panel performance guarantee.'
+    detail: 'Dedicated customer support and rapid on-site technician dispatch for 5 continuous years, backing your 30-Year panel performance guarantee.'
   }
 ];
 

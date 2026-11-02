@@ -6,7 +6,7 @@ import ScrollReveal from '../components/ScrollReveal';
 export default function SolutionsPage({ onSelectSolution }) {
   return (
     <div className="bg-[#F7FAF5]">
-      
+
       {/* Header Banner */}
       <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-20 bg-[#063B18] text-white overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#55B51F]/15 rounded-full blur-3xl pointer-events-none" />
@@ -31,7 +31,7 @@ export default function SolutionsPage({ onSelectSolution }) {
       {/* Detailed Solutions Breakdown */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
-          
+
           {SOLUTIONS_DATA.map((sol, index) => {
             const isReversed = index % 2 !== 0;
             return (
@@ -40,9 +40,8 @@ export default function SolutionsPage({ onSelectSolution }) {
                 id={sol.id}
                 animation="fade-up"
                 duration={800}
-                className={`grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center ${
-                  isReversed ? 'lg:flex-row-reverse' : ''
-                }`}
+                className={`grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center ${isReversed ? 'lg:flex-row-reverse' : ''
+                  }`}
               >
                 {/* Visual Image Column */}
                 <div className={`lg:col-span-6 ${isReversed ? 'lg:order-2' : ''}`}>
@@ -53,7 +52,7 @@ export default function SolutionsPage({ onSelectSolution }) {
                       className="w-full h-[400px] object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#063B18]/80 via-transparent to-transparent" />
-                    
+
                     <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-[#55B51F]/20 shadow-xl">
                       <div className="flex items-center justify-between">
                         <div>
@@ -128,7 +127,7 @@ export default function SolutionsPage({ onSelectSolution }) {
       {/* Comparison Matrix Section */}
       <section className="py-20 bg-[#F7FAF5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <ScrollReveal animation="fade-up" className="text-center max-w-3xl mx-auto mb-16">
             <h3 className="text-3xl font-black text-[#063B18] tracking-tight font-display">
               Technical Comparison Matrix
@@ -176,7 +175,7 @@ export default function SolutionsPage({ onSelectSolution }) {
                   <td className="p-4 sm:p-5 text-[#718078]">All System Scales</td>
                   <td className="p-4 sm:p-5 font-bold text-[#55B51F]">Continuous Yield</td>
                   <td className="p-4 sm:p-5 text-[#718078]">All Roof & Ground Mounts</td>
-                  <td className="p-4 sm:p-5 text-[#101A13]">Maximizing 25-year kWh power harvest</td>
+                  <td className="p-4 sm:p-5 text-[#101A13]">Maximizing 30-Year kWh power harvest</td>
                 </tr>
               </tbody>
             </table>

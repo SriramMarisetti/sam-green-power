@@ -41,10 +41,10 @@ export default function Hero({ onOpenQuote }) {
       {/* Hero Content Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-12 lg:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
-          
+
           {/* Left Column: Headline, Brand Description & CTAs */}
           <ScrollReveal animation="fade-right" duration={800} className="lg:col-span-7 flex flex-col justify-center space-y-6 sm:space-y-8 text-white">
-            
+
             {/* Small Badge: "POWERING A GREENER TOMORROW" */}
             <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/15 backdrop-blur-md border border-white/25 shadow-lg w-fit">
               <span className="flex items-center justify-center w-5 h-5 rounded-full bg-[#55B51F] text-white shadow-sm">
@@ -107,7 +107,7 @@ export default function Hero({ onOpenQuote }) {
               <div className="flex flex-col">
                 <div className="flex items-center gap-1.5 text-white font-extrabold text-sm sm:text-base">
                   <CheckCircle2 className="w-4 h-4 text-[#F5A000] shrink-0" />
-                  <span>25-Year Life</span>
+                  <span>30-Year Life</span>
                 </div>
                 <span className="text-[11px] sm:text-xs text-slate-200/80">Engineered Longevity</span>
               </div>
@@ -118,7 +118,7 @@ export default function Hero({ onOpenQuote }) {
           {/* Right Column: Premium Solar Installation Showcase Card */}
           <ScrollReveal animation="fade-left" delay={200} duration={800} className="lg:col-span-5 relative">
             <div className="relative rounded-3xl overflow-hidden bg-white/95 backdrop-blur-xl border border-white/50 shadow-2xl space-y-4 text-[#101A13]">
-              
+
               {/* Vibrant Solar Installation Photo - Clear Photovoltaic Panels Under Clear Sky */}
               <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-200">
                 <img
@@ -127,7 +127,7 @@ export default function Hero({ onOpenQuote }) {
                   className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#063B18]/90 via-[#063B18]/30 to-transparent" />
-                
+
                 <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md text-[11px] font-black text-[#063B18] shadow-sm flex items-center gap-1.5 border border-[#55B51F]/30">
                   <Sun className="w-3.5 h-3.5 text-[#F5A000]" />
                   <span>Tier-1 Monocrystalline PV</span>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import { Sparkles } from 'lucide-react';
 import ScrollToTop from './components/ScrollToTop';
@@ -29,6 +29,56 @@ function AppContent() {
   const [learnMoreOpen, setLearnMoreOpen] = useState(false);
   const [quoteInitialData, setQuoteInitialData] = useState(null);
   const [contactSolution, setContactSolution] = useState('Residential Solar');
+
+  // 30-Second Quote Popup Re-trigger Logic
+  // When a popup is closed and the user scrolls the website, re-trigger the quote popup after 30 seconds once
+  const [hasScrolledAfterClose, setHasScrolledAfterClose] = useState(false);
+  const [autoQuoteTriggered, setAutoQuoteTriggered] = useState(false);
+  const popupClosedAtRef = useRef(null);
+  const autoTriggerFiredRef = useRef(false);
+
+  // Triggered whenever the user closes PromoModal or ConsultationModal
+  const handlePopupClosed = () => {
+    if (!autoTriggerFiredRef.current && !popupClosedAtRef.current) {
+      popupClosedAtRef.current = Date.now();
+    }
+  };
+
+  // Detect scroll activity after popup has been closed
+  useEffect(() => {
+    const handleScroll = () => {
+      if (popupClosedAtRef.current && !autoTriggerFiredRef.current) {
+        setHasScrolledAfterClose(true);
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Timer: check every second if 30 seconds have passed since close and user has scrolled
+  useEffect(() => {
+    if (autoQuoteTriggered) return;
+
+    const timer = setInterval(() => {
+      if (
+        popupClosedAtRef.current &&
+        !autoTriggerFiredRef.current &&
+        hasScrolledAfterClose &&
+        !promoModalOpen &&
+        !quoteModalOpen &&
+        !learnMoreOpen
+      ) {
+        const elapsed = Date.now() - popupClosedAtRef.current;
+        if (elapsed >= 30000) {
+          autoTriggerFiredRef.current = true;
+          setAutoQuoteTriggered(true);
+          setQuoteModalOpen(true);
+        }
+      }
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [hasScrolledAfterClose, promoModalOpen, quoteModalOpen, learnMoreOpen, autoQuoteTriggered]);
 
   const handlePreloaderComplete = () => {
     setSiteRevealed(true);
@@ -64,11 +114,10 @@ function AppContent() {
 
       {/* Main Website Wrapper with Smooth Fade-Up Animation */}
       <div
-        className={`flex-1 transition-all duration-1000 ease-out ${
-          siteRevealed
+        className={`flex-1 transition-all duration-1000 ease-out ${siteRevealed
             ? 'opacity-100 filter-none'
             : 'opacity-0 translate-y-12 blur-[1px] transform'
-        }`}
+          }`}
       >
         <ScrollToTop />
         <Navbar onOpenQuote={() => handleOpenQuote()} />
@@ -169,19 +218,28 @@ function AppContent() {
       {/* Welcome Promo Modal (Point 1 & Point 2) */}
       <PromoModal
         isOpen={promoModalOpen}
-        onClose={() => setPromoModalOpen(false)}
+        onClose={() => {
+          setPromoModalOpen(false);
+          handlePopupClosed();
+        }}
       />
 
       {/* Standard Consultation Modal */}
       <ConsultationModal
         isOpen={quoteModalOpen}
-        onClose={() => setQuoteModalOpen(false)}
+        onClose={() => {
+          setQuoteModalOpen(false);
+          handlePopupClosed();
+        }}
         initialData={quoteInitialData}
       />
 
       <LearnMoreModal
         isOpen={learnMoreOpen}
-        onClose={() => setLearnMoreOpen(false)}
+        onClose={() => {
+          setLearnMoreOpen(false);
+          handlePopupClosed();
+        }}
         onOpenQuote={() => handleOpenQuote()}
       />
     </div>

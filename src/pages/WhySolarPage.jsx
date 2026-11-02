@@ -14,7 +14,7 @@ export default function WhySolarPage({ onOpenQuote }) {
 
   return (
     <div className="bg-[#F7FAF5]">
-      
+
       {/* Header Banner */}
       <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-20 bg-[#063B18] text-white overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#55B51F]/15 rounded-full blur-3xl pointer-events-none" />
@@ -39,7 +39,7 @@ export default function WhySolarPage({ onOpenQuote }) {
       {/* 4 Core Pillars Detailed */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-          
+
           <ScrollReveal animation="fade-up" className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl sm:text-4xl font-black text-[#063B18] tracking-tight font-display">
               The Four Cornerstones of Clean Energy Independence
@@ -50,7 +50,7 @@ export default function WhySolarPage({ onOpenQuote }) {
           </ScrollReveal>
 
           <ScrollStagger className="grid grid-cols-1 md:grid-cols-2 gap-8" staggerDelay={120}>
-            
+
             {/* Pillar 1 */}
             <div className="p-8 sm:p-10 rounded-3xl bg-[#F7FAF5] border border-[#55B51F]/20 hover:border-[#55B51F]/60 transition-all shadow-sm hover:shadow-xl space-y-4">
               <div className="w-14 h-14 rounded-2xl bg-[#063B18] text-[#55B51F] flex items-center justify-center shadow-md">
@@ -107,7 +107,7 @@ export default function WhySolarPage({ onOpenQuote }) {
               </p>
               <div className="pt-2 text-xs font-bold text-[#063B18] flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#1762A5]" />
-                <span>25-Year Performance Backing</span>
+                <span>30-Year Performance Backing</span>
               </div>
             </div>
 
@@ -199,11 +199,10 @@ export default function WhySolarPage({ onOpenQuote }) {
               return (
                 <div
                   key={idx}
-                  className={`rounded-2xl transition-all duration-200 border overflow-hidden ${
-                    isOpen
+                  className={`rounded-2xl transition-all duration-200 border overflow-hidden ${isOpen
                       ? 'bg-white border-[#55B51F] shadow-md ring-1 ring-[#55B51F]/30'
                       : 'bg-[#F7FAF5] border-slate-200/80 hover:border-[#55B51F]/40'
-                  }`}
+                    }`}
                 >
                   <button
                     type="button"
@@ -211,9 +210,8 @@ export default function WhySolarPage({ onOpenQuote }) {
                     className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
                   >
                     <div className="flex items-center gap-3.5">
-                      <span className={`w-8 h-8 rounded-xl flex items-center justify-center text-xs font-black shrink-0 transition-colors ${
-                        isOpen ? 'bg-[#063B18] text-[#55B51F]' : 'bg-white text-[#718078] border border-slate-200'
-                      }`}>
+                      <span className={`w-8 h-8 rounded-xl flex items-center justify-center text-xs font-black shrink-0 transition-colors ${isOpen ? 'bg-[#063B18] text-[#55B51F]' : 'bg-white text-[#718078] border border-slate-200'
+                        }`}>
                         {String(idx + 1).padStart(2, '0')}
                       </span>
                       <h4 className="text-sm sm:text-base font-extrabold text-[#063B18]">
@@ -221,9 +219,8 @@ export default function WhySolarPage({ onOpenQuote }) {
                       </h4>
                     </div>
                     <ChevronDown
-                      className={`w-5 h-5 text-[#55B51F] shrink-0 transition-transform duration-200 ${
-                        isOpen ? 'rotate-180' : ''
-                      }`}
+                      className={`w-5 h-5 text-[#55B51F] shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''
+                        }`}
                     />
                   </button>
 

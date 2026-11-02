@@ -84,7 +84,7 @@ export default function PageLoader({ onComplete }) {
           </p>
 
           <p className="text-xs text-[#718078] font-medium pt-0.5">
-            Clean Energy • Smarter Living • Better Future
+            Clean Energy • Better Future
           </p>
         </div>
 
