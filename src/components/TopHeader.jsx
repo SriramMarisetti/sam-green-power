@@ -5,7 +5,7 @@ export default function TopHeader({ isScrolled = false, isTransparent = false })
   const socialLinks = [
     {
       name: 'WhatsApp',
-      href: 'https://wa.me/91701320449?text=' + encodeURIComponent('Hello SAM Green Power Solutions Pvt. Ltd., I would like to inquire about solar installation.'),
+      href: 'https://wa.me/917013204499?text=' + encodeURIComponent('Hello SAM Green Power Solutions Pvt. Ltd., I would like to inquire about solar installation.'),
       colorClass: 'text-[#25D366] hover:bg-[#25D366] hover:text-white',
       svg: (
         <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -59,18 +59,18 @@ export default function TopHeader({ isScrolled = false, isTransparent = false })
       <div className="max-w-7xl mx-auto px-3 sm:px-6">
         <div className="flex items-center justify-between gap-2">
           
-          {/* Mobile Tap-to-Call */}
+          {/* Mobile Tap-to-Call with Dedicated Background Box Container */}
           <div className="flex items-center gap-2">
             <a
-              href="tel:+91701320449"
-              className="inline-flex items-center gap-1.5 font-bold hover:text-[#55B51F] transition-colors cursor-pointer"
-              title="Call SAM Green Power"
+              href="tel:+917013204499"
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#55B51F] hover:bg-[#469A18] text-white shadow-xs transition-all duration-200 cursor-pointer active:scale-95 group border border-white/20"
+              title="Call SAM Green Power (+91 7013204499)"
             >
-              <div className="w-5 h-5 rounded-full bg-[#55B51F] text-white flex items-center justify-center shadow-xs">
-                <Phone className="w-2.5 h-2.5" />
+              <div className="w-4 h-4 rounded-full bg-white/25 flex items-center justify-center shrink-0">
+                <Phone className="w-2.5 h-2.5 text-white" />
               </div>
-              <span className="tracking-tight text-white font-sans text-xs">
-                +91 701320449
+              <span className="tracking-tight text-white font-sans text-xs font-black">
+                +91 7013204499
               </span>
             </a>
 

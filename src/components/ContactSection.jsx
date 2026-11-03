@@ -234,8 +234,8 @@ export default function ContactSection({ prefilledSolution, hideHeader = false }
                   </div>
                   <div>
                     <span className="text-[10px] uppercase font-bold text-slate-300 block">Contact Number</span>
-                    <a href="tel:+91701320449" className="text-white/90 font-bold hover:text-[#55B51F] transition-colors">
-                      +91 701320449
+                    <a href="tel:+917013204499" className="text-white/90 font-bold hover:text-[#55B51F] transition-colors">
+                      +91 7013204499
                     </a>
                   </div>
                 </div>

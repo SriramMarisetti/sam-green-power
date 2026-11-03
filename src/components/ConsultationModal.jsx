@@ -82,59 +82,110 @@ export default function ConsultationModal({ isOpen, onClose, initialData }) {
   };
 
   return createPortal(
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border-2 border-[#55B51F]/30 relative max-h-[92vh] overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/75 backdrop-blur-md animate-in fade-in duration-200">
+      <div className="bg-white rounded-3xl max-w-lg w-full shadow-2xl border-2 border-[#55B51F]/30 relative max-h-[90vh] flex flex-col overflow-hidden">
         
-        {/* Close Button */}
+        {/* Dismiss / Close Button */}
         <button
           onClick={handleResetAndClose}
-          className="absolute top-5 right-5 p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-[#718078] transition-colors cursor-pointer"
+          className="absolute top-4 right-4 sm:top-5 sm:right-5 p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-[#718078] hover:text-[#063B18] transition-colors cursor-pointer z-20"
+          aria-label="Close modal"
         >
           <X className="w-5 h-5" />
         </button>
 
-        {submitted ? (
-          <div className="py-8 text-center space-y-4">
-            <div className="w-16 h-16 rounded-full bg-[#55B51F]/15 text-[#55B51F] flex items-center justify-center mx-auto">
-              <CheckCircle2 className="w-8 h-8" />
-            </div>
-            <h3 className="text-2xl font-black text-[#063B18]">Consultation Booked!</h3>
-            <p className="text-sm text-[#718078] leading-relaxed">
-              Thank you, <strong className="text-[#063B18]">{formData.name}</strong>. Your solar requirement for <strong className="text-[#063B18]">{formData.solarNeed} Solar</strong> in <strong className="text-[#063B18]">{formData.location || formData.state}</strong> has been logged. Our engineering advisor will review your site and contact you within 24 hours at <strong className="text-[#063B18]">{formData.mobile}</strong>.
-            </p>
-            <div className="pt-4">
-              <button
-                onClick={handleResetAndClose}
-                className="px-6 py-2.5 rounded-full bg-[#063B18] text-white text-xs font-bold hover:bg-[#0a4d21] cursor-pointer"
-              >
-                Close Window
-              </button>
-            </div>
-          </div>
-        ) : (
-          <div>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-2xl bg-white p-1 border border-[#55B51F]/30 shadow-sm shrink-0">
-                <img src="/logo-128.png" alt="SAM GREEN POWER" className="w-full h-full object-contain rounded-full" />
+        {/* Inner Scrollable Container with contained smooth scrollbar */}
+        <div className="p-5 sm:p-7 modal-scrollbar flex-1 overflow-y-auto">
+          {submitted ? (
+            <div className="py-8 text-center space-y-4">
+              <div className="w-16 h-16 rounded-full bg-[#55B51F]/15 text-[#55B51F] flex items-center justify-center mx-auto">
+                <CheckCircle2 className="w-8 h-8" />
               </div>
-              <div>
-                <span className="text-xs uppercase font-extrabold text-[#55B51F] tracking-wider block">
-                  Point 2 • Official Get a Quote
-                </span>
-                <h3 className="text-xl sm:text-2xl font-black text-[#063B18] font-display">
-                  Book a Free Consultation
-                </h3>
+              <h3 className="text-2xl font-black text-[#063B18]">Consultation Booked!</h3>
+              <p className="text-sm text-[#718078] leading-relaxed">
+                Thank you, <strong className="text-[#063B18]">{formData.name}</strong>. Your solar requirement for <strong className="text-[#063B18]">{formData.solarNeed} Solar</strong> in <strong className="text-[#063B18]">{formData.location || formData.state}</strong> has been logged. Our engineering advisor will review your site and contact you within 24 hours at <strong className="text-[#063B18]">{formData.mobile}</strong>.
+              </p>
+              <div className="pt-4">
+                <button
+                  onClick={handleResetAndClose}
+                  className="px-6 py-2.5 rounded-full bg-[#063B18] text-white text-xs font-bold hover:bg-[#0a4d21] cursor-pointer"
+                >
+                  Close Window
+                </button>
               </div>
             </div>
+          ) : (
+            <div>
+              <div className="flex items-center gap-3 mb-5 pr-10">
+                <div className="w-11 h-11 rounded-2xl bg-white p-1 border border-[#55B51F]/30 shadow-sm shrink-0">
+                  <img src="/logo-128.png" alt="SAM GREEN POWER" className="w-full h-full object-contain rounded-full" />
+                </div>
+                <div className="min-w-0">
+                  <span className="text-[11px] uppercase font-extrabold text-[#55B51F] tracking-wider block">
+                    Point 2 • Official Get a Quote
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-black text-[#063B18] font-display leading-tight">
+                    Book a Free Consultation
+                  </h3>
+                </div>
+              </div>
 
-            {/* Offer Callout Banner */}
-            <div className="mb-5 p-3.5 rounded-2xl bg-[#063B18] text-white flex items-center justify-between text-xs">
-              <div className="flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-[#F5A000]" />
-                <span>Govt Subsidy: <strong className="text-[#55B51F]">₹78,000</strong> + SAM Offer: <strong className="text-[#F5A000]">₹22,000</strong></span>
+              {/* Offer Callout Banner - Compact, Centered, No Wrapping */}
+              <div className="mb-5 p-2.5 sm:px-3 sm:py-2 rounded-2xl bg-gradient-to-r from-[#063B18] via-[#09471d] to-[#042810] text-white border border-[#55B51F]/30 shadow-md">
+                
+                {/* DESKTOP VIEW (sm:flex): Decreased size, guaranteed single-line, perfectly balanced */}
+                <div className="hidden sm:flex items-center justify-between gap-3 text-slate-100">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <div className="w-5 h-5 rounded-full bg-[#55B51F]/20 flex items-center justify-center shrink-0 border border-[#55B51F]/30">
+                      <Sparkles className="w-3 h-3 text-[#F5A000]" />
+                    </div>
+                    <div className="flex items-center gap-1.5 text-[11px] lg:text-xs">
+                      <span className="font-medium whitespace-nowrap">
+                        Govt Subsidy: <strong className="text-[#55B51F] font-bold">₹78,000</strong>
+                      </span>
+                      <span className="text-slate-400 font-bold px-0.5">+</span>
+                      <span className="font-medium whitespace-nowrap">
+                        SAM Offer: <strong className="text-[#F5A000] font-bold">₹22,000</strong>
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Decreased font size, pure white text, space between rupee and amount */}
+                  <div className="flex items-center shrink-0 pl-2">
+                    <span className="font-black text-white text-xs lg:text-sm tracking-tight whitespace-nowrap">
+                      = ₹ 1,00,000
+                    </span>
+                  </div>
+                </div>
+
+                {/* MOBILE VIEW (< sm): Clean 2-column, Total Benefit label removed, text vertically centered */}
+                <div className="sm:hidden flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <div className="w-5 h-5 rounded-full bg-[#55B51F]/20 flex items-center justify-center shrink-0 border border-[#55B51F]/30">
+                      <Sparkles className="w-3 h-3 text-[#F5A000]" />
+                    </div>
+                    <div className="text-[10px] leading-tight space-y-0.5">
+                      <div className="whitespace-nowrap">
+                        <span className="text-slate-300 font-medium">Govt Subsidy: </span>
+                        <strong className="text-[#55B51F] font-bold">₹78,000</strong>
+                      </div>
+                      <div className="whitespace-nowrap">
+                        <span className="text-slate-400 font-bold">+ </span>
+                        <span className="text-slate-300 font-medium">SAM Offer: </span>
+                        <strong className="text-[#F5A000] font-bold">₹22,000</strong>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Centered `= ₹ 1,00,000` text without Total Benefit label */}
+                  <div className="shrink-0 flex items-center justify-center pl-2">
+                    <span className="font-black text-white text-xs tracking-tight whitespace-nowrap">
+                      = ₹ 1,00,000
+                    </span>
+                  </div>
+                </div>
+
               </div>
-              <span className="font-extrabold text-[#55B51F]">= ₹1,00,000</span>
-            </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               {/* Name */}
@@ -311,6 +362,7 @@ export default function ConsultationModal({ isOpen, onClose, initialData }) {
             </form>
           </div>
         )}
+        </div>
       </div>
     </div>,
     document.body

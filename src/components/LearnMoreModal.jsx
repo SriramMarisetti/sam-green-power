@@ -6,16 +6,17 @@ export default function LearnMoreModal({ isOpen, onClose, onOpenQuote }) {
   if (!isOpen) return null;
 
   return createPortal(
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-[#55B51F]/30 relative max-h-[92vh] overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/70 backdrop-blur-md animate-in fade-in duration-200">
+      <div className="bg-white rounded-3xl max-w-2xl w-full shadow-2xl border-2 border-[#55B51F]/30 relative max-h-[90vh] flex flex-col overflow-hidden">
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-[#718078] transition-colors cursor-pointer"
+          className="absolute top-4 right-4 sm:top-5 sm:right-5 p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-[#718078] hover:text-[#063B18] transition-colors cursor-pointer z-20"
         >
           <X className="w-5 h-5" />
         </button>
 
-        <div className="flex items-center gap-3.5 mb-6">
+        <div className="p-5 sm:p-8 modal-scrollbar flex-1 overflow-y-auto">
+          <div className="flex items-center gap-3.5 mb-6 pr-10">
           <div className="w-14 h-14 rounded-2xl bg-white p-1 border border-[#55B51F]/30 shadow-md">
             <img src="/logo-128.png" alt="SAM GREEN POWER" className="w-full h-full object-contain rounded-full" />
           </div>
@@ -93,7 +94,8 @@ export default function LearnMoreModal({ isOpen, onClose, onOpenQuote }) {
           </div>
         </div>
       </div>
-    </div>,
-    document.body
-  );
+    </div>
+  </div>,
+  document.body
+);
 }

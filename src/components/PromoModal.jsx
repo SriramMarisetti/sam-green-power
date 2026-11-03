@@ -74,19 +74,21 @@ export default function PromoModal({ isOpen, onClose }) {
   };
 
   return createPortal(
-    <div data-testid="promo-modal" className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl border-2 border-[#55B51F]/30 relative max-h-[92vh] overflow-y-auto">
+    <div data-testid="promo-modal" className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/75 backdrop-blur-md animate-in fade-in duration-200">
+      <div className="bg-white rounded-3xl max-w-xl w-full shadow-2xl border-2 border-[#55B51F]/30 relative max-h-[90vh] flex flex-col overflow-hidden">
         
         {/* Dismiss / Close Button */}
         <button
           onClick={handleResetAndClose}
-          className="absolute top-5 right-5 p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-[#718078] hover:text-[#063B18] transition-colors cursor-pointer z-10"
+          className="absolute top-4 right-4 sm:top-5 sm:right-5 p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-[#718078] hover:text-[#063B18] transition-colors cursor-pointer z-20"
           aria-label="Close modal"
         >
           <X className="w-5 h-5" />
         </button>
 
-        {submitted ? (
+        {/* Inner Scroll Container */}
+        <div className="p-4 sm:p-6 modal-scrollbar flex-1 overflow-y-auto">
+          {submitted ? (
           <div className="py-8 text-center space-y-4">
             <div className="w-16 h-16 rounded-full bg-[#55B51F]/15 text-[#55B51F] flex items-center justify-center mx-auto">
               <CheckCircle2 className="w-8 h-8" />
@@ -120,19 +122,19 @@ export default function PromoModal({ isOpen, onClose }) {
           /* ========================================================= */
           /* VIEW 1: PROMO OFFER WITH HIGHLIGHTED COSTS & BOOK BUTTON  */
           /* ========================================================= */
-          <div className="space-y-6 pt-1">
+          <div className="space-y-3.5 sm:space-y-4 pt-0.5">
             
             {/* Header Badge */}
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-2xl bg-white p-1 border border-[#55B51F]/30 shadow-sm shrink-0">
+            <div className="flex items-center gap-2.5 sm:gap-3">
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-white p-1 border border-[#55B51F]/30 shadow-xs shrink-0">
                 <img src="/logo-128.png" alt="SAM GREEN POWER" className="w-full h-full object-contain rounded-full" />
               </div>
-              <div>
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#55B51F]/15 text-[#063B18] text-[10px] font-extrabold tracking-wider uppercase border border-[#55B51F]/30">
+              <div className="min-w-0">
+                <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[#55B51F]/15 text-[#063B18] text-[10px] font-extrabold tracking-wider uppercase border border-[#55B51F]/30">
                   <Sparkles className="w-3 h-3 text-[#F5A000]" />
                   <span>Limited Period Solar Offer</span>
                 </span>
-                <h3 className="text-xl sm:text-2xl font-black text-[#063B18] font-display mt-0.5">
+                <h3 className="text-base sm:text-lg font-black text-[#063B18] font-display mt-0.5 truncate">
                   SAM GREEN POWER SOLUTIONS PVT. LTD.
                 </h3>
               </div>
@@ -140,58 +142,64 @@ export default function PromoModal({ isOpen, onClose }) {
 
             {/* Main Headline */}
             <div>
-              <h4 className="text-2xl sm:text-3xl font-black text-[#063B18] tracking-tight leading-tight">
+              <h4 className="text-xl sm:text-2xl font-black text-[#063B18] tracking-tight leading-tight">
                 Switch to Solar & Save Up to <span className="text-[#55B51F]">₹1,00,000</span>!
               </h4>
-              <p className="text-sm text-[#718078] mt-2 leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#718078] mt-1 leading-relaxed">
                 Take advantage of the verified central rooftop solar incentive combined with our exclusive engineering discount for Andhra Pradesh and Telangana.
               </p>
             </div>
 
-            {/* HIGHLIGHTED PRICING CARD (Client Requirement 1) */}
-            <div className="p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-[#063B18] via-[#0b4e22] to-[#063B18] text-white shadow-xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-48 h-48 bg-[#F5A000]/15 rounded-full blur-2xl pointer-events-none" />
-              <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#55B51F]/20 rounded-full blur-2xl pointer-events-none" />
-
-              <span className="text-[11px] font-bold uppercase tracking-widest text-[#55B51F] block mb-3">
+            {/* HIGHLIGHTED PRICING CARD (Hardware Accelerated Container - Stable & Static on Scroll) */}
+            <div
+              className="p-4 sm:p-5 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#063B18] via-[#09471d] to-[#042810] text-white shadow-xl relative overflow-hidden border border-[#55B51F]/30"
+              style={{
+                transform: 'translateZ(0)',
+                WebkitTransform: 'translateZ(0)',
+                backfaceVisibility: 'hidden',
+                WebkitBackfaceVisibility: 'hidden',
+                contain: 'paint'
+              }}
+            >
+              <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-[#55B51F] block mb-2.5">
                 Total Direct Financial Benefits:
               </span>
 
-              {/* Formula & Highlighted Prices */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pb-4 border-b border-white/15">
+              {/* Formula & Highlighted Prices - Fixed 2-column layout with solid crisp containers */}
+              <div className="grid grid-cols-2 gap-2.5 sm:gap-3 pb-3 border-b border-white/15">
                 {/* Subsidy Box */}
-                <div className="p-3.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-300 block">
+                <div className="p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-white/15 border border-white/25 shadow-xs">
+                  <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-slate-200 block truncate">
                     Central Govt Subsidy
                   </span>
-                  <div className="text-2xl sm:text-3xl font-black text-[#55B51F] mt-0.5">
+                  <div className="text-xl sm:text-2xl font-black text-[#55B51F] mt-0.5 tracking-tight">
                     ₹78,000
                   </div>
-                  <span className="text-[10px] text-slate-300">PM Surya Ghar Scheme</span>
+                  <span className="text-[9px] sm:text-[10px] text-slate-300 block truncate">PM Surya Ghar Scheme</span>
                 </div>
 
                 {/* Offer Amount Box */}
-                <div className="p-3.5 rounded-2xl bg-white/10 backdrop-blur-md border border-[#F5A000]/40">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-300 block">
+                <div className="p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-white/15 border border-[#F5A000]/50 shadow-xs">
+                  <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-slate-200 block truncate">
                     SAM Discount / Offer
                   </span>
-                  <div className="text-2xl sm:text-3xl font-black text-[#F5A000] mt-0.5">
+                  <div className="text-xl sm:text-2xl font-black text-[#F5A000] mt-0.5 tracking-tight">
                     ₹22,000
                   </div>
-                  <span className="text-[10px] text-slate-300">Direct Company Rebate</span>
+                  <span className="text-[9px] sm:text-[10px] text-slate-300 block truncate">Direct Company Rebate</span>
                 </div>
               </div>
 
               {/* Total Combined Benefit */}
-              <div className="pt-3 flex items-center justify-between">
+              <div className="pt-2.5 flex items-center justify-between">
                 <div>
-                  <span className="text-xs text-slate-200 font-medium">Total Savings & Subsidies:</span>
-                  <p className="text-xl sm:text-2xl font-black text-white">
-                    ₹1,00,000 <span className="text-xs font-semibold text-[#55B51F]">Combined Benefit</span>
+                  <span className="text-[11px] sm:text-xs text-slate-300 font-medium">Total Savings & Subsidies:</span>
+                  <p className="text-lg sm:text-xl font-black text-white">
+                    ₹1,00,000 <span className="text-[11px] sm:text-xs font-semibold text-[#55B51F]">Combined Benefit</span>
                   </p>
                 </div>
-                <div className="text-right">
-                  <span className="px-2.5 py-1 rounded-full bg-[#55B51F] text-white text-[11px] font-extrabold uppercase">
+                <div className="text-right shrink-0">
+                  <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full bg-[#55B51F] text-white text-[10px] sm:text-[11px] font-extrabold uppercase">
                     100% Guaranteed
                   </span>
                 </div>
@@ -199,35 +207,35 @@ export default function PromoModal({ isOpen, onClose }) {
             </div>
 
             {/* Matter Highlights */}
-            <div className="space-y-2 text-xs sm:text-sm text-[#101A13]/80">
+            <div className="space-y-1.5 text-xs text-[#101A13]/85">
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#55B51F] shrink-0" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#55B51F] shrink-0" />
                 <span>Zero-cost on-site rooftop shadow analysis in AP & Telangana</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#55B51F] shrink-0" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#55B51F] shrink-0" />
                 <span>Tier-1 550W+ Monocrystalline Bifacial solar modules</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#55B51F] shrink-0" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#55B51F] shrink-0" />
                 <span>Full Discom net-metering liaison and zero-down loan facilitation</span>
               </div>
             </div>
 
             {/* Action Buttons */}
-            <div className="pt-2 space-y-2.5">
+            <div className="pt-1 space-y-2">
               <button
                 data-testid="book-consultation-btn"
                 onClick={() => setView('form')}
-                className="w-full inline-flex items-center justify-center gap-2.5 py-4 px-8 rounded-full bg-[#55B51F] hover:bg-[#469A18] text-white text-base font-extrabold shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5 cursor-pointer border border-[#55B51F]/40"
+                className="w-full inline-flex items-center justify-center gap-2 py-3 px-6 rounded-full bg-[#55B51F] hover:bg-[#469A18] text-white text-sm sm:text-base font-extrabold shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5 cursor-pointer border border-[#55B51F]/40"
               >
                 <span>Book a Free Consultation</span>
-                <ArrowRight className="w-5 h-5 text-white" />
+                <ArrowRight className="w-4 h-4 text-white" />
               </button>
 
               <button
                 onClick={handleResetAndClose}
-                className="w-full text-center text-xs font-semibold text-[#718078] hover:text-[#063B18] py-1 cursor-pointer"
+                className="w-full text-center text-xs font-semibold text-[#718078] hover:text-[#063B18] py-0.5 cursor-pointer"
               >
                 Maybe later, explore website
               </button>
@@ -240,26 +248,81 @@ export default function PromoModal({ isOpen, onClose }) {
           /* ========================================================= */
           <div className="space-y-5 pt-1">
             
-            {/* Header */}
-            <div>
-              <div className="flex items-center justify-between">
+            {/* Header with right padding to prevent collision with X close button */}
+            <div className="pr-10 sm:pr-12">
+              <div className="flex items-center justify-between gap-3">
                 <span className="text-xs font-extrabold uppercase tracking-wider text-[#55B51F]">
                   Point 2 • Official Sizing Assessment
                 </span>
                 <button
                   type="button"
                   onClick={() => setView('offer')}
-                  className="text-xs font-bold text-[#063B18] hover:underline cursor-pointer"
+                  className="text-xs font-bold text-[#063B18] hover:text-[#55B51F] hover:underline cursor-pointer shrink-0"
                 >
                   ← Back to Offer
                 </button>
               </div>
-              <h3 className="text-2xl font-black text-[#063B18] font-display mt-1">
+              <h3 className="text-xl sm:text-2xl font-black text-[#063B18] font-display mt-1">
                 Book a Free Consultation (Get a Quote)
               </h3>
-              <p className="text-xs text-[#718078] mt-0.5">
+              <p className="text-xs text-[#718078] mt-0.5 mb-3">
                 Fill in the details below to claim your ₹78,000 subsidy + ₹22,000 offer amount.
               </p>
+            </div>
+
+            {/* Offer Callout Banner - Compact, Centered, No Wrapping */}
+            <div className="p-2.5 sm:px-3 sm:py-2 rounded-2xl bg-gradient-to-r from-[#063B18] via-[#09471d] to-[#042810] text-white border border-[#55B51F]/30 shadow-md">
+              {/* DESKTOP VIEW (sm:flex): Decreased size, guaranteed single-line, perfectly balanced */}
+              <div className="hidden sm:flex items-center justify-between gap-3 text-slate-100">
+                <div className="flex items-center gap-2 min-w-0">
+                  <div className="w-5 h-5 rounded-full bg-[#55B51F]/20 flex items-center justify-center shrink-0 border border-[#55B51F]/30">
+                    <Sparkles className="w-3 h-3 text-[#F5A000]" />
+                  </div>
+                  <div className="flex items-center gap-1.5 text-[11px] lg:text-xs">
+                    <span className="font-medium whitespace-nowrap">
+                      Govt Subsidy: <strong className="text-[#55B51F] font-bold">₹78,000</strong>
+                    </span>
+                    <span className="text-slate-400 font-bold px-0.5">+</span>
+                    <span className="font-medium whitespace-nowrap">
+                      SAM Offer: <strong className="text-[#F5A000] font-bold">₹22,000</strong>
+                    </span>
+                  </div>
+                </div>
+
+                {/* Decreased font size, pure white text, space between rupee and amount */}
+                <div className="flex items-center shrink-0 pl-2">
+                  <span className="font-black text-white text-xs lg:text-sm tracking-tight whitespace-nowrap">
+                    = ₹ 1,00,000
+                  </span>
+                </div>
+              </div>
+
+              {/* MOBILE VIEW (< sm): Clean 2-column, Total Benefit label removed, text vertically centered */}
+              <div className="sm:hidden flex items-center justify-between gap-3">
+                <div className="flex items-center gap-2 min-w-0">
+                  <div className="w-5 h-5 rounded-full bg-[#55B51F]/20 flex items-center justify-center shrink-0 border border-[#55B51F]/30">
+                    <Sparkles className="w-3.5 h-3.5 text-[#F5A000]" />
+                  </div>
+                  <div className="text-[10px] leading-tight space-y-0.5">
+                    <div className="whitespace-nowrap">
+                      <span className="text-slate-300 font-medium">Govt Subsidy: </span>
+                      <strong className="text-[#55B51F] font-bold">₹78,000</strong>
+                    </div>
+                    <div className="whitespace-nowrap">
+                      <span className="text-slate-400 font-bold">+ </span>
+                      <span className="text-slate-300 font-medium">SAM Offer: </span>
+                      <strong className="text-[#F5A000] font-bold">₹22,000</strong>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Centered `= ₹ 1,00,000` text without Total Benefit label */}
+                <div className="shrink-0 flex items-center justify-center pl-2">
+                  <span className="font-black text-white text-xs tracking-tight whitespace-nowrap">
+                    = ₹ 1,00,000
+                  </span>
+                </div>
+              </div>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -443,6 +506,7 @@ export default function PromoModal({ isOpen, onClose }) {
           </div>
         )}
 
+        </div>
       </div>
     </div>,
     document.body

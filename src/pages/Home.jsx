@@ -2,6 +2,7 @@ import React from 'react';
 import Hero from '../components/Hero';
 import AboutUs from '../components/AboutUs';
 import SolarSolutions from '../components/SolarSolutions';
+import SolarDevelopmentExperience from '../components/SolarDevelopmentExperience';
 import WhyChooseUs from '../components/WhyChooseUs';
 import HowItWorks from '../components/HowItWorks';
 import SolarCalculator from '../components/SolarCalculator';
@@ -29,6 +30,9 @@ export default function Home({ onOpenQuote, onSelectSolution, onCalculateQuote, 
 
       {/* Solar Solutions Showcase */}
       <SolarSolutions onSelectSolution={onSelectSolution} />
+
+      {/* Solar Development & Installation 3D Experience (Video Scrollytelling on Desktop, Interactive Card on Mobile) */}
+      <SolarDevelopmentExperience onOpenQuote={onOpenQuote} />
 
       {/* Why Choose Us */}
       <WhyChooseUs />

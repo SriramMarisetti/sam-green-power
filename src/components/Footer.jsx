@@ -49,10 +49,10 @@ export default function Footer({ onOpenQuote }) {
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#55B51F]/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Main Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10">
-          
+
           {/* Col 1: Brand & Logo (4 cols) */}
           <div className="lg:col-span-4 space-y-6">
             <Link to="/" className="flex items-center gap-3.5 group">
@@ -169,8 +169,8 @@ export default function Footer({ onOpenQuote }) {
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-[#55B51F] shrink-0" />
-                <a href="tel:+91701320449" className="hover:text-[#55B51F] transition-colors">
-                  +91 701320449
+                <a href="tel:+917013204499" className="hover:text-[#55B51F] transition-colors">
+                  +91 7013204499
                 </a>
               </div>
               <div className="flex items-center gap-2.5">

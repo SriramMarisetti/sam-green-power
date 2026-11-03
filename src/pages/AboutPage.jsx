@@ -224,8 +224,8 @@ export default function AboutPage({ onOpenQuote }) {
                     <span className="text-xs font-bold uppercase tracking-wider text-slate-300">Contact Number</span>
                   </div>
                   <p className="text-sm font-semibold text-white leading-relaxed">
-                    <a href="tel:+91701320449" className="hover:text-[#55B51F] transition-colors">
-                      +91 701320449
+                    <a href="tel:+917013204499" className="hover:text-[#55B51F] transition-colors">
+                      +91 7013204499
                     </a><br />
                     <span className="text-xs text-slate-300">Mon - Sat: 9:00 AM - 6:30 PM</span>
                   </p>

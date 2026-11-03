@@ -67,24 +67,24 @@ export default function PageLoader({ onComplete }) {
         </div>
 
         {/* Company Title & Brand Identity */}
-        <div className="mt-1 space-y-1.5 flex flex-col items-center animate-fade-in">
-          <div className="flex items-center gap-2.5">
+        <div className="mt-2 space-y-2 flex flex-col items-center animate-fade-in text-center">
+          <div className="flex items-center justify-center gap-2.5">
             <img
               src="/logo-128.png"
               alt="SAM Logo"
-              className="w-8 h-8 object-contain rounded-full shadow-sm border border-[#55B51F]/30 bg-white p-0.5"
+              className="w-8 h-8 object-contain rounded-full shadow-sm border border-[#55B51F]/30 bg-white p-0.5 shrink-0"
             />
-            <h2 className="text-xl sm:text-2xl font-black text-[#063B18] tracking-tight font-display">
+            <h2 className="text-lg sm:text-xl md:text-2xl font-black text-[#063B18] tracking-tight font-display">
               SAM GREEN POWER
             </h2>
           </div>
 
-          <p className="text-[11px] sm:text-xs font-bold text-[#55B51F] uppercase tracking-widest">
+          <h3 className="text-lg sm:text-xl md:text-2xl font-black text-[#55B51F] tracking-tight font-display uppercase">
             SOLUTIONS PRIVATE LIMITED
-          </p>
+          </h3>
 
-          <p className="text-xs text-[#718078] font-medium pt-0.5">
-            Clean Energy • Better Future
+          <p className="text-lg sm:text-xl md:text-2xl font-black text-[#063B18] tracking-tight font-display">
+            Clean Energy <span className="text-[#55B51F]">•</span> Better Future
           </p>
         </div>
 

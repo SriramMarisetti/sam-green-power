@@ -89,10 +89,10 @@ export default function HomeFaqSection() {
           </div>
           <div className="flex items-center gap-3 shrink-0">
             <a
-              href="tel:+91701320449"
+              href="tel:+917013204499"
               className="px-6 py-3 rounded-full bg-[#55B51F] hover:bg-[#469A18] text-white text-xs sm:text-sm font-bold shadow-md transition-all cursor-pointer"
             >
-              Call: +91 701320449
+              Call: +91 7013204499
             </a>
             <Link
               to="/why-solar"
