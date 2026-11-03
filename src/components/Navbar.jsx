@@ -49,7 +49,7 @@ export default function Navbar({ onOpenQuote }) {
           !isTransparent
             ? 'bg-[#063B18] lg:bg-white/95 lg:backdrop-blur-md shadow-md border-b border-[#55B51F]/20 lg:border-[#55B51F]/15 py-4 sm:py-4 lg:py-3 min-h-[72px] lg:min-h-0'
             : 'bg-[#063B18] lg:bg-black/20 lg:backdrop-blur-xs py-4 sm:py-4 border-b border-[#55B51F]/20 lg:border-white/10 min-h-[72px] lg:min-h-0'
-        }`}
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
@@ -68,16 +68,14 @@ export default function Navbar({ onOpenQuote }) {
               </div>
               <div className="flex flex-col">
                 <span
-                  className={`text-base sm:text-xl font-black tracking-tight leading-tight font-display transition-colors text-white ${
-                    !isTransparent ? 'lg:text-[#063B18]' : 'lg:text-white lg:drop-shadow-sm'
-                  }`}
+                  className={`text-base sm:text-xl font-black tracking-tight leading-tight font-display transition-colors text-white ${!isTransparent ? 'lg:text-[#063B18]' : 'lg:text-white lg:drop-shadow-sm'
+                    }`}
                 >
                   SAM GREEN POWER
                 </span>
                 <span
-                  className={`text-[9px] sm:text-[10px] tracking-wider uppercase font-extrabold transition-colors text-[#55B51F] ${
-                    !isTransparent ? 'lg:text-[#55B51F]' : 'lg:text-emerald-300 lg:drop-shadow-sm'
-                  }`}
+                  className={`text-[9px] sm:text-[10px] tracking-wider uppercase font-extrabold transition-colors text-white ${!isTransparent ? 'lg:text-[#063B18]' : 'lg:text-white lg:drop-shadow-sm'
+                    }`}
                 >
                   SOLUTIONS PVT. LTD.
                 </span>
@@ -143,28 +141,7 @@ export default function Navbar({ onOpenQuote }) {
       {mobileMenuOpen && (
         <div className="lg:hidden absolute top-full inset-x-0 bg-white/98 backdrop-blur-xl border-b border-[#55B51F]/20 shadow-xl transition-all duration-300 max-h-[85vh] overflow-y-auto">
           <div className="px-6 pt-4 pb-8 space-y-3">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-              <div className="flex items-center gap-2.5">
-                <img
-                  src="/logo-128.png"
-                  alt="SAM GREEN POWER"
-                  className="w-9 h-9 object-contain rounded-full border border-[#55B51F]/30"
-                />
-                <div>
-                  <p className="font-extrabold text-[#063B18] text-xs">SAM GREEN POWER</p>
-                  <p className="text-[10px] text-[#55B51F] font-bold">SOLUTIONS PVT. LTD.</p>
-                </div>
-              </div>
 
-              {/* Call directly */}
-              <a
-                href="tel:+917013204499"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#55B51F]/15 text-[#063B18] text-xs font-bold"
-              >
-                <Phone className="w-3 h-3 text-[#55B51F]" />
-                <span>+91 7013204499</span>
-              </a>
-            </div>
 
 
             <nav className="flex flex-col space-y-1 pt-1">
