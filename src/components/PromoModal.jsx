@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
-import { X, CheckCircle2, ShieldCheck, ArrowRight, Zap, Sparkles, MapPin, Phone, Mail } from 'lucide-react';
+import { X, CheckCircle2, ShieldCheck, ArrowRight, Sparkles } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import { submitEnquiry } from '../utils/api';
 
 /**
  * PromoModal Component
@@ -48,23 +49,42 @@ export default function PromoModal({ isOpen, onClose }) {
     'Warangal', 'Khammam', 'Tirupathi', 'Nellore', 'Karimnagar'
   ];
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if (submitting) return;
     setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
-      setSubmitted(true);
-      try {
-        confetti({
-          particleCount: 90,
-          spread: 70,
-          origin: { y: 0.6 },
-          colors: ['#55B51F', '#F5A000', '#063B18']
-        });
-      } catch {
-        // no-op
-      }
-    }, 600);
+
+    try {
+      await submitEnquiry({
+        name: formData.name.trim(),
+        mobile: formData.mobile.trim(),
+        email: formData.email.trim(),
+        solarNeed: formData.solarNeed,
+        state: formData.state,
+        monthlyBill: formData.monthlyBill,
+        location: formData.location,
+        formType: 'promo',
+        source: 'Limited Period Solar Offer Popup',
+        subsidy: '₹78,000',
+        samDiscount: '₹22,000',
+        totalBenefit: '₹1,00,000',
+      });
+    } catch (err) {
+      console.warn('Promo submission note:', err);
+    }
+
+    setSubmitting(false);
+    setSubmitted(true);
+    try {
+      confetti({
+        particleCount: 90,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#55B51F', '#F5A000', '#063B18'],
+      });
+    } catch {
+      // no-op
+    }
   };
 
   const handleResetAndClose = () => {
@@ -337,7 +357,7 @@ export default function PromoModal({ isOpen, onClose }) {
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  placeholder="Enter your full name"
+                  placeholder="Enter your name"
                   className="w-full px-4 py-3 rounded-xl bg-[#F7FAF5] border border-slate-200 text-sm focus:outline-none focus:border-[#55B51F] text-[#101A13]"
                 />
               </div>
@@ -491,7 +511,7 @@ export default function PromoModal({ isOpen, onClose }) {
                   disabled={submitting}
                   className="w-full flex items-center justify-center gap-2 py-4 px-6 rounded-full bg-[#55B51F] hover:bg-[#469A18] text-white font-extrabold text-sm shadow-md hover:shadow-lg transition-all cursor-pointer"
                 >
-                  {submitting ? 'Booking Consultation...' : 'Submit & Book Free Consultation'}
+                  {submitting ? 'Booking Consultation...' : 'Book a Free Consultation'}
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>

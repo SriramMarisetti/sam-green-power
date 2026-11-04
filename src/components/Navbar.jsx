@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight, Calculator, Phone } from 'lucide-react';
+import { Menu, X, ArrowRight, Calculator } from 'lucide-react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import TopHeader from './TopHeader';
 

@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle2, Clock, MessageSquare } from 'lucide-react';
+import { Mail, Phone, MapPin, CheckCircle2, Clock, MessageSquare, ArrowRight, ShieldCheck, Sparkles } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import ScrollReveal from './ScrollReveal';
+import { submitEnquiry } from '../utils/api';
 
 export default function ContactSection({ prefilledSolution, hideHeader = false }) {
   const [formData, setFormData] = useState({
-    fullName: '',
-    phoneNumber: '',
-    emailAddress: '',
-    interestedSolution: prefilledSolution || 'Residential Solar',
-    message: '',
+    name: '',
+    mobile: '',
+    email: '',
+    solarNeed: prefilledSolution?.toLowerCase().includes('commercial') ? 'Commercial' : 'Residential',
+    state: 'AP',
+    monthlyBill: '2000 - 2500',
+    location: '',
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -19,32 +22,64 @@ export default function ContactSection({ prefilledSolution, hideHeader = false }
   const [prevSolution, setPrevSolution] = useState(prefilledSolution);
   if (prefilledSolution !== prevSolution) {
     setPrevSolution(prefilledSolution);
-    setFormData((prev) => ({ ...prev, interestedSolution: prefilledSolution }));
+    setFormData((prev) => ({
+      ...prev,
+      solarNeed: prefilledSolution?.toLowerCase().includes('commercial') ? 'Commercial' : 'Residential',
+    }));
   }
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+  const billRanges = [
+    '0 - 500',
+    '500 - 1000',
+    '1000 - 1500',
+    '1500 - 2000',
+    '2000 - 2500',
+    '2500 - 3000',
+    '3000 - 3500',
+    '3500 - 5000',
+    'More than 5000',
+  ];
 
-  const handleSubmit = (e) => {
+  const popularLocations = [
+    'Vijayawada', 'Hyderabad', 'Guntur', 'Vizag', 'Rajahmundry',
+  ];
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if (submitting) return;
     setSubmitting(true);
 
-    setTimeout(() => {
-      setSubmitting(false);
-      setSubmitted(true);
-      try {
-        confetti({
-          particleCount: 80,
-          spread: 60,
-          origin: { y: 0.7 },
-          colors: ['#55B51F', '#F5A000', '#063B18']
-        });
-      } catch {
-        // no-op if confetti fails
-      }
-    }, 600);
+    try {
+      await submitEnquiry({
+        name: formData.name.trim(),
+        mobile: formData.mobile.trim(),
+        email: formData.email.trim(),
+        solarNeed: formData.solarNeed,
+        state: formData.state,
+        monthlyBill: formData.monthlyBill,
+        location: formData.location.trim(),
+        formType: 'consultation',
+        source: 'Contact Page / Section (Book a Free Consultation)',
+        subsidy: '₹78,000',
+        samDiscount: '₹22,000',
+        totalBenefit: '₹1,00,000',
+      });
+    } catch (err) {
+      console.warn('Contact consultation submission note:', err);
+    }
+
+    setSubmitting(false);
+    setSubmitted(true);
+    try {
+      confetti({
+        particleCount: 85,
+        spread: 65,
+        origin: { y: 0.65 },
+        colors: ['#55B51F', '#F5A000', '#063B18'],
+      });
+    } catch {
+      // no-op if confetti fails
+    }
   };
 
   return (
@@ -69,131 +104,251 @@ export default function ContactSection({ prefilledSolution, hideHeader = false }
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
-          {/* Left Column: Contact Form */}
-          <ScrollReveal animation="fade-right" duration={800} className="lg:col-span-7 bg-[#F7FAF5] rounded-3xl p-6 sm:p-10 border border-[#55B51F]/20 shadow-lg">
-            <h3 className="text-2xl font-extrabold text-[#063B18] mb-2 font-display">
-              Request Feasibility Assessment
-            </h3>
-            <p className="text-sm text-[#718078] mb-8">
-              Fill in your details below and our technical team will contact you within 24 business hours.
-            </p>
+          {/* Left Column: Unified Book a Free Consultation Form */}
+          <ScrollReveal animation="fade-right" duration={800} className="lg:col-span-7 bg-[#F7FAF5] rounded-3xl p-6 sm:p-9 border border-[#55B51F]/20 shadow-lg">
+            
+            {/* Form Header */}
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-11 h-11 rounded-2xl bg-white p-1 border border-[#55B51F]/30 shadow-sm shrink-0">
+                <img src="/logo-128.png" alt="SAM GREEN POWER" className="w-full h-full object-contain rounded-full" />
+              </div>
+              <div className="min-w-0">
+                <span className="text-[11px] uppercase font-extrabold text-[#55B51F] tracking-wider block">
+                  Point 2 • Official Get a Quote
+                </span>
+                <h3 className="text-xl sm:text-2xl font-black text-[#063B18] font-display leading-tight">
+                  Book a Free Consultation
+                </h3>
+              </div>
+            </div>
+
+            {/* Offer Callout Banner */}
+            <div className="mb-5 p-2.5 sm:px-3 sm:py-2 rounded-2xl bg-gradient-to-r from-[#063B18] via-[#09471d] to-[#042810] text-white border border-[#55B51F]/30 shadow-md">
+              <div className="flex items-center justify-between gap-3 text-slate-100">
+                <div className="flex items-center gap-2 min-w-0">
+                  <div className="w-5 h-5 rounded-full bg-[#55B51F]/20 flex items-center justify-center shrink-0 border border-[#55B51F]/30">
+                    <Sparkles className="w-3 h-3 text-[#F5A000]" />
+                  </div>
+                  <div className="flex items-center gap-1.5 text-[11px] sm:text-xs">
+                    <span className="font-medium whitespace-nowrap">
+                      Govt Subsidy: <strong className="text-[#55B51F] font-bold">₹78,000</strong>
+                    </span>
+                    <span className="text-slate-400 font-bold px-0.5">+</span>
+                    <span className="font-medium whitespace-nowrap">
+                      SAM Offer: <strong className="text-[#F5A000] font-bold">₹22,000</strong>
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex items-center shrink-0 pl-2">
+                  <span className="font-black text-white text-xs sm:text-sm tracking-tight whitespace-nowrap">
+                    = ₹ 1,00,000
+                  </span>
+                </div>
+              </div>
+            </div>
 
             {submitted ? (
               <div className="p-8 text-center bg-white rounded-2xl border border-[#55B51F]/30 space-y-4">
                 <div className="w-16 h-16 rounded-full bg-[#55B51F]/15 text-[#55B51F] flex items-center justify-center mx-auto">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
-                <h4 className="text-2xl font-black text-[#063B18]">Inquiry Received!</h4>
+                <h4 className="text-2xl font-black text-[#063B18]">Consultation Booked!</h4>
                 <p className="text-sm text-[#718078] max-w-md mx-auto leading-relaxed">
-                  Thank you, <strong className="text-[#063B18]">{formData.fullName}</strong>. Your inquiry for <strong className="text-[#063B18]">{formData.interestedSolution}</strong> has been logged. Our engineering specialist will reach out to you shortly.
+                  Thank you, <strong className="text-[#063B18]">{formData.name}</strong>. Your solar requirement for <strong className="text-[#063B18]">{formData.solarNeed} Solar</strong> in <strong className="text-[#063B18]">{formData.location || formData.state}</strong> has been logged. Our engineering specialist will review your site and contact you within 24 hours at <strong className="text-[#063B18]">{formData.mobile}</strong>.
                 </p>
                 <button
-                  onClick={() => setSubmitted(false)}
+                  onClick={() => {
+                    setSubmitted(false);
+                    setFormData({
+                      name: '',
+                      mobile: '',
+                      email: '',
+                      solarNeed: 'Residential',
+                      state: 'AP',
+                      monthlyBill: '2000 - 2500',
+                      location: '',
+                    });
+                  }}
                   className="px-6 py-2 rounded-full bg-[#063B18] text-white text-xs font-bold hover:bg-[#0a4d21] cursor-pointer"
                 >
-                  Send Another Inquiry
+                  Book Another Consultation
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
-                {/* Full Name */}
+              <form onSubmit={handleSubmit} className="space-y-4">
+                {/* Name */}
                 <div>
-                  <label className="block text-xs font-bold text-[#063B18] uppercase tracking-wider mb-2">
-                    Full Name <span className="text-[#F5A000]">*</span>
+                  <label className="block text-xs font-bold text-[#063B18] uppercase tracking-wider mb-1">
+                    Name <span className="text-[#F5A000]">*</span>
                   </label>
                   <input
                     type="text"
                     required
-                    name="fullName"
-                    value={formData.fullName}
-                    onChange={handleChange}
-                    placeholder="e.g. Rajesh Kumar"
-                    className="w-full px-4 py-3.5 rounded-xl bg-white border border-slate-200 text-sm focus:outline-none focus:border-[#55B51F] focus:ring-2 focus:ring-[#55B51F]/20 text-[#101A13]"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    placeholder="Enter your name"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 text-sm focus:outline-none focus:border-[#55B51F] text-[#101A13]"
                   />
                 </div>
 
-                {/* Phone & Email Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {/* Mobile Number & Email */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                   <div>
-                    <label className="block text-xs font-bold text-[#063B18] uppercase tracking-wider mb-2">
-                      Phone Number <span className="text-[#F5A000]">*</span>
+                    <label className="block text-xs font-bold text-[#063B18] uppercase tracking-wider mb-1">
+                      Mobile Number <span className="text-[#F5A000]">*</span>
                     </label>
                     <input
                       type="tel"
                       required
-                      name="phoneNumber"
-                      value={formData.phoneNumber}
-                      onChange={handleChange}
-                      placeholder="+91 98765 43210"
-                      className="w-full px-4 py-3.5 rounded-xl bg-white border border-slate-200 text-sm focus:outline-none focus:border-[#55B51F] focus:ring-2 focus:ring-[#55B51F]/20 text-[#101A13]"
+                      value={formData.mobile}
+                      onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
+                      placeholder="e.g. 9876543210"
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 text-sm focus:outline-none focus:border-[#55B51F] text-[#101A13]"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-[#063B18] uppercase tracking-wider mb-2">
-                      Email Address <span className="text-[#F5A000]">*</span>
+                    <label className="block text-xs font-bold text-[#063B18] uppercase tracking-wider mb-1">
+                      Email ID <span className="text-[#F5A000]">*</span>
                     </label>
                     <input
                       type="email"
                       required
-                      name="emailAddress"
-                      value={formData.emailAddress}
-                      onChange={handleChange}
-                      placeholder="rajesh@example.com"
-                      className="w-full px-4 py-3.5 rounded-xl bg-white border border-slate-200 text-sm focus:outline-none focus:border-[#55B51F] focus:ring-2 focus:ring-[#55B51F]/20 text-[#101A13]"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      placeholder="name@example.com"
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 text-sm focus:outline-none focus:border-[#55B51F] text-[#101A13]"
                     />
                   </div>
                 </div>
 
-                {/* Interested Solar Solution */}
+                {/* Solar Need (Residential / Commercial) */}
                 <div>
-                  <label className="block text-xs font-bold text-[#063B18] uppercase tracking-wider mb-2">
-                    Interested Solar Solution
+                  <label className="block text-xs font-bold text-[#063B18] uppercase tracking-wider mb-1.5">
+                    Solar Need <span className="text-[#F5A000]">*</span>
+                  </label>
+                  <div className="grid grid-cols-2 gap-3">
+                    <button
+                      type="button"
+                      onClick={() => setFormData({ ...formData, solarNeed: 'Residential' })}
+                      className={`py-2.5 px-4 rounded-xl text-xs sm:text-sm font-extrabold border transition-all cursor-pointer flex items-center justify-center gap-2 ${
+                        formData.solarNeed === 'Residential'
+                          ? 'bg-[#063B18] text-white border-[#063B18] shadow-sm'
+                          : 'bg-white text-[#718078] border-slate-200 hover:border-[#55B51F]/40'
+                      }`}
+                    >
+                      <span>Residential</span>
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => setFormData({ ...formData, solarNeed: 'Commercial' })}
+                      className={`py-2.5 px-4 rounded-xl text-xs sm:text-sm font-extrabold border transition-all cursor-pointer flex items-center justify-center gap-2 ${
+                        formData.solarNeed === 'Commercial'
+                          ? 'bg-[#063B18] text-white border-[#063B18] shadow-sm'
+                          : 'bg-white text-[#718078] border-slate-200 hover:border-[#55B51F]/40'
+                      }`}
+                    >
+                      <span>Commercial</span>
+                    </button>
+                  </div>
+                </div>
+
+                {/* State (AP, Telangana) */}
+                <div>
+                  <label className="block text-xs font-bold text-[#063B18] uppercase tracking-wider mb-1.5">
+                    State <span className="text-[#F5A000]">*</span>
+                  </label>
+                  <div className="grid grid-cols-2 gap-3">
+                    <button
+                      type="button"
+                      onClick={() => setFormData({ ...formData, state: 'AP' })}
+                      className={`py-2.5 px-4 rounded-xl text-xs sm:text-sm font-extrabold border transition-all cursor-pointer flex items-center justify-center gap-2 ${
+                        formData.state === 'AP'
+                          ? 'bg-[#55B51F] text-white border-[#55B51F] shadow-sm'
+                          : 'bg-white text-[#718078] border-slate-200 hover:border-[#55B51F]/40'
+                      }`}
+                    >
+                      <span>Andhra Pradesh (AP)</span>
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => setFormData({ ...formData, state: 'Telangana' })}
+                      className={`py-2.5 px-4 rounded-xl text-xs sm:text-sm font-extrabold border transition-all cursor-pointer flex items-center justify-center gap-2 ${
+                        formData.state === 'Telangana'
+                          ? 'bg-[#55B51F] text-white border-[#55B51F] shadow-sm'
+                          : 'bg-white text-[#718078] border-slate-200 hover:border-[#55B51F]/40'
+                      }`}
+                    >
+                      <span>Telangana</span>
+                    </button>
+                  </div>
+                </div>
+
+                {/* Select Monthly Bill */}
+                <div>
+                  <label className="block text-xs font-bold text-[#063B18] uppercase tracking-wider mb-1.5">
+                    Select Monthly Bill (₹) <span className="text-[#F5A000]">*</span>
                   </label>
                   <select
-                    name="interestedSolution"
-                    value={formData.interestedSolution}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3.5 rounded-xl bg-white border border-slate-200 text-sm focus:outline-none focus:border-[#55B51F] focus:ring-2 focus:ring-[#55B51F]/20 text-[#101A13]"
+                    value={formData.monthlyBill}
+                    onChange={(e) => setFormData({ ...formData, monthlyBill: e.target.value })}
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 text-sm font-bold focus:outline-none focus:border-[#55B51F] text-[#101A13]"
                   >
-                    <option value="Residential Solar">Residential Solar</option>
-                    <option value="Commercial Solar">Commercial Solar</option>
-                    <option value="Industrial Solar">Industrial Solar</option>
-                    <option value="Solar Installation & Maintenance">Solar Installation & Maintenance</option>
-                    <option value="Custom Engineering Project">Custom Engineering Project</option>
+                    {billRanges.map((range) => (
+                      <option key={range} value={range}>
+                        ₹ {range}
+                      </option>
+                    ))}
                   </select>
                 </div>
 
-                {/* Message */}
+                {/* Location */}
                 <div>
-                  <label className="block text-xs font-bold text-[#063B18] uppercase tracking-wider mb-2">
-                    Message / Rooftop Details (Optional)
+                  <label className="block text-xs font-bold text-[#063B18] uppercase tracking-wider mb-1">
+                    Location / City <span className="text-[#F5A000]">*</span>
                   </label>
-                  <textarea
-                    rows={4}
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Tell us about your property type, approximate rooftop area, or current monthly electricity consumption..."
-                    className="w-full px-4 py-3.5 rounded-xl bg-white border border-slate-200 text-sm focus:outline-none focus:border-[#55B51F] focus:ring-2 focus:ring-[#55B51F]/20 text-[#101A13] resize-none"
-                  ></textarea>
+                  <input
+                    type="text"
+                    required
+                    value={formData.location}
+                    onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                    placeholder="e.g. Vijayawada, Hyderabad, Guntur, Vizag..."
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 text-sm focus:outline-none focus:border-[#55B51F] text-[#101A13]"
+                  />
+
+                  <div className="flex flex-wrap gap-1.5 mt-2">
+                    {popularLocations.map((city) => (
+                      <button
+                        key={city}
+                        type="button"
+                        onClick={() => setFormData({ ...formData, location: city })}
+                        className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-[#063B18]/5 hover:bg-[#55B51F]/20 text-[#063B18] transition-colors cursor-pointer"
+                      >
+                        {city}
+                      </button>
+                    ))}
+                  </div>
                 </div>
 
-                {/* Submit CTA */}
-                <button
-                  type="submit"
-                  disabled={submitting}
-                  className="w-full inline-flex items-center justify-center gap-2 py-4 px-8 rounded-full bg-[#55B51F] hover:bg-[#469A18] text-white text-base font-bold shadow-md hover:shadow-lg transition-all duration-200 disabled:opacity-70 cursor-pointer"
-                >
-                  {submitting ? (
-                    <span>Submitting Inquiry...</span>
-                  ) : (
-                    <>
-                      <span>Submit Inquiry</span>
-                      <Send className="w-4 h-4" />
-                    </>
-                  )}
-                </button>
+                {/* Submit Button */}
+                <div className="pt-2">
+                  <button
+                    type="submit"
+                    disabled={submitting}
+                    className="w-full flex items-center justify-center gap-2 py-4 px-6 rounded-full bg-[#55B51F] hover:bg-[#469A18] text-white font-extrabold text-sm shadow-md hover:shadow-lg transition-all cursor-pointer disabled:opacity-70"
+                  >
+                    {submitting ? 'Processing Request...' : 'Book a Free Consultation'}
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
+
+                <div className="flex items-center justify-center gap-2 text-[11px] text-[#718078] pt-1">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#55B51F]" />
+                  <span>100% Free Consultation • Zero Obligation</span>
+                </div>
               </form>
             )}
           </ScrollReveal>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { X, CheckCircle2, ShieldCheck, ArrowRight, Sparkles } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import { submitEnquiry } from '../utils/api';
 
 /**
  * ConsultationModal Component
@@ -57,23 +58,47 @@ export default function ConsultationModal({ isOpen, onClose, initialData }) {
     'Warangal', 'Khammam', 'Tirupathi', 'Nellore', 'Karimnagar'
   ];
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if (submitting) return;
     setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
-      setSubmitted(true);
-      try {
-        confetti({
-          particleCount: 100,
-          spread: 70,
-          origin: { y: 0.6 },
-          colors: ['#55B51F', '#F5A000', '#063B18']
-        });
-      } catch {
-        // no-op
-      }
-    }, 600);
+
+    try {
+      await submitEnquiry({
+        name: formData.name.trim(),
+        mobile: formData.mobile.trim(),
+        email: formData.email.trim(),
+        solarNeed: formData.solarNeed,
+        state: formData.state,
+        monthlyBill: formData.monthlyBill,
+        location: formData.location,
+        formType: 'consultation',
+        source: initialData?.capacity
+          ? 'Solar Sizing Calculator (Consultation Modal)'
+          : 'Official Get a Quote (Consultation Modal)',
+        capacity: initialData?.capacity || '',
+        savings: initialData?.savings || '',
+        subsidy: initialData?.subsidy || '₹78,000',
+        samDiscount: initialData?.samDiscount || '₹22,000',
+        totalBenefit: '₹1,00,000',
+        netCost: initialData?.netCost || '',
+      });
+    } catch (err) {
+      console.warn('Consultation submission error:', err);
+    }
+
+    setSubmitting(false);
+    setSubmitted(true);
+    try {
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#55B51F', '#F5A000', '#063B18'],
+      });
+    } catch {
+      // no-op
+    }
   };
 
   const handleResetAndClose = () => {
@@ -350,7 +375,7 @@ export default function ConsultationModal({ isOpen, onClose, initialData }) {
                   disabled={submitting}
                   className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-[#55B51F] hover:bg-[#469A18] text-white font-extrabold text-sm shadow-md hover:shadow-lg transition-all cursor-pointer"
                 >
-                  {submitting ? 'Processing Request...' : 'Confirm Consultation Booking'}
+                  {submitting ? 'Processing Request...' : 'Book a Free Consultation'}
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
