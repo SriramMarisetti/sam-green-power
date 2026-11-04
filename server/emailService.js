@@ -27,9 +27,9 @@ function isDuplicateSubmission(key) {
 }
 
 export function getTransporter() {
-  const user = (process.env.EMAIL_USER || 'chiru6442@gmail.com').trim();
+  const user = (process.env.EMAIL_USER || 'infosamgreenpower@gmail.com').trim();
   // Strip any accidental spaces from Gmail App Password
-  const pass = (process.env.EMAIL_PASS || 'robtlzxbmrommmbg').replace(/\s+/g, '');
+  const pass = (process.env.EMAIL_PASS || 'tjlyvnoimtoezula').replace(/\s+/g, '');
 
   return nodemailer.createTransport({
     service: 'gmail',
@@ -42,12 +42,12 @@ export function getTransporter() {
 
 /**
  * Send full notification email package:
- * 1. Rich Admin Lead Notification to configured admin email (e.g. chiru6442@gmail.com)
+ * 1. Rich Admin Lead Notification to configured admin email (e.g. infosamgreenpower@gmail.com)
  * 2. Elegant, tailored Confirmation Email to customer's email (if valid and not matching admin)
  */
 export async function sendEnquiryEmail(data) {
   const transporter = getTransporter();
-  const adminEmail = (process.env.EMAIL_TO || process.env.EMAIL_USER || 'chiru6442@gmail.com').trim();
+  const adminEmail = (process.env.EMAIL_TO || process.env.EMAIL_USER || 'infosamgreenpower@gmail.com').trim();
 
   const customerName = (data.name || data.fullName || 'Valued Customer').trim();
   const customerMobile = (data.mobile || data.phoneNumber || 'Not provided').trim();
@@ -77,12 +77,12 @@ export async function sendEnquiryEmail(data) {
     };
   }
 
-  // 1. Dispatch Admin Notification to chiru6442@gmail.com
+  // 1. Dispatch Admin Notification to infosamgreenpower@gmail.com
   const adminSubject = `⚡ New Solar Lead: ${customerName} | ${solarNeed} | ${location}`;
   const adminHtml = generateAdminLeadEmail(normalizedData);
 
   const adminMailOptions = {
-    from: `"SAM GREEN POWER Lead Portal" <${process.env.EMAIL_USER || 'chiru6442@gmail.com'}>`,
+    from: `"SAM GREEN POWER Lead Portal" <${process.env.EMAIL_USER || 'infosamgreenpower@gmail.com'}>`,
     to: adminEmail,
     replyTo: customerEmail || undefined,
     subject: adminSubject,
@@ -101,11 +101,31 @@ export async function sendEnquiryEmail(data) {
       const customerSubject = `Solar Consultation Confirmed — SAM GREEN POWER SOLUTIONS PVT. LTD.`;
 
       const customerHtml = generateCustomerConfirmationEmail(normalizedData);
+      const customerText = `Dear ${customerName},
+
+Thank you for choosing SAM GREEN POWER SOLUTIONS PVT. LTD.
+
+We have successfully received your solar consultation booking for ${solarNeed} in ${location}.
+Our dedicated engineering specialist will review your site and contact you within 24 hours at ${customerMobile}.
+
+Benefits Included:
+- Central Subsidy: ₹78,000 (PM Surya Ghar)
+- SAM Direct Discount: ₹22,000
+- Total Benefit: ₹1,00,000 deducted directly from turnkey installation costs.
+
+For immediate assistance or questions:
+Phone: +91 7013204499
+Email: infosamgreenpower@gmail.com
+Corporate Office: D No 2-5-127, Ryathu Bazar, NTR Dist, Andhra Pradesh, India - 521456
+
+SAM GREEN POWER SOLUTIONS PVT. LTD.
+Clean Energy. Better Future.`;
 
       customerMailResult = await transporter.sendMail({
-        from: `"SAM GREEN POWER" <${process.env.EMAIL_USER || 'chiru6442@gmail.com'}>`,
+        from: `"SAM GREEN POWER" <${process.env.EMAIL_USER || 'infosamgreenpower@gmail.com'}>`,
         to: customerEmail,
         subject: customerSubject,
+        text: customerText,
         html: customerHtml,
       });
       console.log(`✅ [${customerSubject}] sent successfully to customer: ${customerEmail} (MessageId: ${customerMailResult.messageId})`);
