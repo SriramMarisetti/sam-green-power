@@ -105,7 +105,7 @@ export default function ContactSection({ prefilledSolution, hideHeader = false }
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
           {/* Left Column: Unified Book a Free Consultation Form */}
-          <ScrollReveal animation="fade-right" duration={800} className="lg:col-span-7 bg-[#F7FAF5] rounded-3xl p-6 sm:p-9 border border-[#55B51F]/20 shadow-lg">
+          <ScrollReveal animation="fade-right" duration={800} className="lg:col-span-7 bg-[#F7FAF5] rounded-3xl p-5 sm:p-9 border border-[#55B51F]/20 shadow-lg">
             
             {/* Form Header */}
             <div className="flex items-center gap-3 mb-5">
@@ -124,7 +124,8 @@ export default function ContactSection({ prefilledSolution, hideHeader = false }
 
             {/* Offer Callout Banner */}
             <div className="mb-5 p-2.5 sm:px-3 sm:py-2 rounded-2xl bg-gradient-to-r from-[#063B18] via-[#09471d] to-[#042810] text-white border border-[#55B51F]/30 shadow-md">
-              <div className="flex items-center justify-between gap-3 text-slate-100">
+              {/* DESKTOP VIEW (sm:flex): Single-line layout */}
+              <div className="hidden sm:flex items-center justify-between gap-3 text-slate-100">
                 <div className="flex items-center gap-2 min-w-0">
                   <div className="w-5 h-5 rounded-full bg-[#55B51F]/20 flex items-center justify-center shrink-0 border border-[#55B51F]/30">
                     <Sparkles className="w-3 h-3 text-[#F5A000]" />
@@ -142,6 +143,33 @@ export default function ContactSection({ prefilledSolution, hideHeader = false }
 
                 <div className="flex items-center shrink-0 pl-2">
                   <span className="font-black text-white text-xs sm:text-sm tracking-tight whitespace-nowrap">
+                    = ₹ 1,00,000
+                  </span>
+                </div>
+              </div>
+
+              {/* MOBILE VIEW (< sm): Clean 2-row layout preventing any text overlapping */}
+              <div className="sm:hidden flex items-center justify-between gap-2.5">
+                <div className="flex items-center gap-2 min-w-0">
+                  <div className="w-5 h-5 rounded-full bg-[#55B51F]/20 flex items-center justify-center shrink-0 border border-[#55B51F]/30">
+                    <Sparkles className="w-3.5 h-3.5 text-[#F5A000]" />
+                  </div>
+                  <div className="text-[10px] leading-tight space-y-0.5">
+                    <div className="whitespace-nowrap">
+                      <span className="text-slate-300 font-medium">Govt Subsidy: </span>
+                      <strong className="text-[#55B51F] font-bold">₹78,000</strong>
+                    </div>
+                    <div className="whitespace-nowrap">
+                      <span className="text-slate-400 font-bold">+ </span>
+                      <span className="text-slate-300 font-medium">SAM Offer: </span>
+                      <strong className="text-[#F5A000] font-bold">₹22,000</strong>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Centered `= ₹ 1,00,000` text without collision */}
+                <div className="shrink-0 flex items-center justify-center pl-2">
+                  <span className="font-black text-white text-xs tracking-tight whitespace-nowrap">
                     = ₹ 1,00,000
                   </span>
                 </div>
