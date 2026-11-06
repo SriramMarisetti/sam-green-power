@@ -2,10 +2,46 @@ import React from 'react';
 import { CheckCircle2, ArrowRight, Zap } from 'lucide-react';
 import { SOLUTIONS_DATA } from '../data/content';
 import ScrollReveal from '../components/ScrollReveal';
+import SEO from '../components/SEO';
+import { PAGE_SEO, getBreadcrumbSchema, getLocalBusinessSchema } from '../seo/seoConfig';
 
 export default function SolutionsPage({ onSelectSolution }) {
+  const solutionsSchemas = [
+    getLocalBusinessSchema(),
+    getBreadcrumbSchema(PAGE_SEO.solutions.breadcrumbs),
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: 'Solar Energy Services & Solutions',
+      itemListElement: SOLUTIONS_DATA.map((sol, idx) => ({
+        '@type': 'ListItem',
+        position: idx + 1,
+        item: {
+          '@type': 'Service',
+          name: sol.title,
+          description: sol.description,
+          provider: {
+            '@type': 'Organization',
+            name: 'SAM GREEN POWER SOLUTIONS PRIVATE LIMITED',
+          },
+          areaServed: ['Andhra Pradesh', 'Telangana'],
+        },
+      })),
+    },
+  ];
+
   return (
     <div className="bg-[#F7FAF5]">
+      {/* Route-Specific SEO Metadata & Schemas */}
+      <SEO
+        title={PAGE_SEO.solutions.title}
+        description={PAGE_SEO.solutions.description}
+        keywords={PAGE_SEO.solutions.keywords}
+        canonical={PAGE_SEO.solutions.canonical}
+        ogType={PAGE_SEO.solutions.ogType}
+        image={PAGE_SEO.solutions.image}
+        schemas={solutionsSchemas}
+      />
 
       {/* Header Banner */}
       <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-20 bg-[#063B18] text-white overflow-hidden">
@@ -48,7 +84,11 @@ export default function SolutionsPage({ onSelectSolution }) {
                   <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-100 group">
                     <img
                       src={sol.image}
-                      alt={sol.title}
+                      alt={`${sol.title} - SAM GREEN POWER SOLUTIONS`}
+                      loading="lazy"
+                      decoding="async"
+                      width="800"
+                      height="500"
                       className="w-full h-[400px] object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#063B18]/80 via-transparent to-transparent" />

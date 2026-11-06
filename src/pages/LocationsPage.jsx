@@ -2,6 +2,8 @@ import React from 'react';
 import { MapPin, ShieldCheck, Zap, ArrowRight } from 'lucide-react';
 import OurLocations from '../components/OurLocations';
 import ScrollReveal from '../components/ScrollReveal';
+import SEO from '../components/SEO';
+import { PAGE_SEO, getBreadcrumbSchema, getLocalBusinessSchema } from '../seo/seoConfig';
 
 export default function LocationsPage({ onOpenQuote }) {
   const handleBookInCity = (city, state) => {
@@ -11,8 +13,24 @@ export default function LocationsPage({ onOpenQuote }) {
     });
   };
 
+  const locationsSchemas = [
+    getLocalBusinessSchema(),
+    getBreadcrumbSchema(PAGE_SEO.locations.breadcrumbs),
+  ];
+
   return (
     <div className="bg-[#F7FAF5]">
+      {/* Route-Specific SEO Metadata & Schemas */}
+      <SEO
+        title={PAGE_SEO.locations.title}
+        description={PAGE_SEO.locations.description}
+        keywords={PAGE_SEO.locations.keywords}
+        canonical={PAGE_SEO.locations.canonical}
+        ogType={PAGE_SEO.locations.ogType}
+        image={PAGE_SEO.locations.image}
+        schemas={locationsSchemas}
+      />
+
       {/* Header Banner */}
       <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-20 bg-[#063B18] text-white overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#55B51F]/15 rounded-full blur-3xl pointer-events-none" />

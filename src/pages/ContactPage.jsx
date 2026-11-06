@@ -2,10 +2,34 @@ import React from 'react';
 import ContactSection from '../components/ContactSection';
 import { MessageSquare, Clock, MapPin, ShieldCheck } from 'lucide-react';
 import ScrollReveal, { ScrollStagger } from '../components/ScrollReveal';
+import SEO from '../components/SEO';
+import { PAGE_SEO, getBreadcrumbSchema, getLocalBusinessSchema } from '../seo/seoConfig';
 
 export default function ContactPage({ prefilledSolution }) {
+  const contactSchemas = [
+    getLocalBusinessSchema(),
+    getBreadcrumbSchema(PAGE_SEO.contact.breadcrumbs),
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ContactPage',
+      name: 'Contact SAM GREEN POWER SOLUTIONS',
+      url: 'https://www.samgreenpower.in/contact',
+      mainEntity: getLocalBusinessSchema(),
+    },
+  ];
+
   return (
     <div className="bg-[#F7FAF5] pb-20">
+      {/* Route-Specific SEO Metadata & Schemas */}
+      <SEO
+        title={PAGE_SEO.contact.title}
+        description={PAGE_SEO.contact.description}
+        keywords={PAGE_SEO.contact.keywords}
+        canonical={PAGE_SEO.contact.canonical}
+        ogType={PAGE_SEO.contact.ogType}
+        image={PAGE_SEO.contact.image}
+        schemas={contactSchemas}
+      />
       
       {/* Header Banner */}
       <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-20 bg-[#063B18] text-white overflow-hidden mb-8">

@@ -3,6 +3,8 @@ import { createPortal } from 'react-dom';
 import { Sparkles, MapPin, Zap, ArrowRight, Eye, X } from 'lucide-react';
 import { PROJECTS_DATA } from '../data/content';
 import ScrollReveal, { ScrollStagger } from '../components/ScrollReveal';
+import SEO from '../components/SEO';
+import { PAGE_SEO, getBreadcrumbSchema } from '../seo/seoConfig';
 
 export default function ProjectsPage({ onOpenQuote }) {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -21,8 +23,40 @@ export default function ProjectsPage({ onOpenQuote }) {
     ? PROJECTS_DATA
     : PROJECTS_DATA.filter((p) => p.category === activeFilter);
 
+  const projectsSchemas = [
+    getBreadcrumbSchema(PAGE_SEO.projects.breadcrumbs),
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: 'SAM GREEN POWER Commissioned Solar Projects',
+      itemListElement: PROJECTS_DATA.map((proj, idx) => ({
+        '@type': 'ListItem',
+        position: idx + 1,
+        item: {
+          '@type': 'CreativeWork',
+          name: proj.title,
+          description: proj.description,
+          locationCreated: {
+            '@type': 'Place',
+            name: proj.location,
+          },
+        },
+      })),
+    },
+  ];
+
   return (
     <div className="bg-[#F7FAF5] pb-20">
+      {/* Route-Specific SEO Metadata & Schemas */}
+      <SEO
+        title={PAGE_SEO.projects.title}
+        description={PAGE_SEO.projects.description}
+        keywords={PAGE_SEO.projects.keywords}
+        canonical={PAGE_SEO.projects.canonical}
+        ogType={PAGE_SEO.projects.ogType}
+        image={PAGE_SEO.projects.image}
+        schemas={projectsSchemas}
+      />
       
       {/* Header Banner */}
       <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-20 bg-[#063B18] text-white overflow-hidden">
@@ -77,7 +111,11 @@ export default function ProjectsPage({ onOpenQuote }) {
                 <div className="relative h-64 overflow-hidden bg-slate-100">
                   <img
                     src={project.image}
-                    alt={project.title}
+                    alt={`${project.title} - ${project.capacity} in ${project.location} by SAM GREEN POWER`}
+                    loading="lazy"
+                    decoding="async"
+                    width="600"
+                    height="400"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#063B18]/85 via-black/25 to-transparent" />
@@ -131,7 +169,11 @@ export default function ProjectsPage({ onOpenQuote }) {
             <div className="relative h-64 sm:h-80 w-full shrink-0">
               <img
                 src={activeModalProject.image}
-                alt={activeModalProject.title}
+                alt={`${activeModalProject.title} - ${activeModalProject.capacity}`}
+                loading="lazy"
+                decoding="async"
+                width="800"
+                height="500"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20" />

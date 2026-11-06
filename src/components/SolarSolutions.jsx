@@ -52,7 +52,11 @@ export default function SolarSolutions({ onSelectSolution }) {
               <div className="relative h-48 overflow-hidden bg-slate-100">
                 <img
                   src={solution.image}
-                  alt={solution.title}
+                  alt={`${solution.title} - SAM GREEN POWER SOLUTIONS`}
+                  loading="lazy"
+                  decoding="async"
+                  width="600"
+                  height="400"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />

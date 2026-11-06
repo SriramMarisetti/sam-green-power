@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import { Sparkles } from 'lucide-react';
 import ScrollToTop from './components/ScrollToTop';
@@ -10,15 +10,17 @@ import PromoModal from './components/PromoModal';
 import LearnMoreModal from './components/LearnMoreModal';
 import PageLoader from './components/PageLoader';
 
-// Pages
+// Eagerly load Home for immediate First & Largest Contentful Paint (LCP)
 import Home from './pages/Home';
-import AboutPage from './pages/AboutPage';
-import SolutionsPage from './pages/SolutionsPage';
-import WhySolarPage from './pages/WhySolarPage';
-import CalculatorPage from './pages/CalculatorPage';
-import ProjectsPage from './pages/ProjectsPage';
-import LocationsPage from './pages/LocationsPage';
-import ContactPage from './pages/ContactPage';
+
+// Code-Split Inner Pages for Core Web Vitals Performance
+const AboutPage = lazy(() => import('./pages/AboutPage'));
+const SolutionsPage = lazy(() => import('./pages/SolutionsPage'));
+const WhySolarPage = lazy(() => import('./pages/WhySolarPage'));
+const CalculatorPage = lazy(() => import('./pages/CalculatorPage'));
+const ProjectsPage = lazy(() => import('./pages/ProjectsPage'));
+const LocationsPage = lazy(() => import('./pages/LocationsPage'));
+const ContactPage = lazy(() => import('./pages/ContactPage'));
 
 function AppContent() {
   const navigate = useNavigate();
@@ -123,63 +125,65 @@ function AppContent() {
         <Navbar onOpenQuote={() => handleOpenQuote()} />
 
         <main>
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <Home
-                  onOpenQuote={() => handleOpenQuote()}
-                  onSelectSolution={handleSelectSolution}
-                  onCalculateQuote={handleCalculateQuote}
-                  contactSolution={contactSolution}
-                />
-              }
-            />
-            <Route
-              path="/about"
-              element={<AboutPage onOpenQuote={() => handleOpenQuote()} />}
-            />
-            <Route
-              path="/solutions"
-              element={
-                <SolutionsPage
-                  onOpenQuote={() => handleOpenQuote()}
-                  onSelectSolution={handleSelectSolution}
-                />
-              }
-            />
-            <Route
-              path="/why-solar"
-              element={<WhySolarPage onOpenQuote={() => handleOpenQuote()} />}
-            />
-            <Route
-              path="/calculator"
-              element={<CalculatorPage onCalculateQuote={handleCalculateQuote} />}
-            />
-            <Route
-              path="/projects"
-              element={<ProjectsPage onOpenQuote={() => handleOpenQuote()} />}
-            />
-            <Route
-              path="/locations"
-              element={<LocationsPage onOpenQuote={handleOpenQuote} />}
-            />
-            <Route
-              path="/contact"
-              element={<ContactPage prefilledSolution={contactSolution} />}
-            />
-            <Route
-              path="*"
-              element={
-                <Home
-                  onOpenQuote={() => handleOpenQuote()}
-                  onSelectSolution={handleSelectSolution}
-                  onCalculateQuote={handleCalculateQuote}
-                  contactSolution={contactSolution}
-                />
-              }
-            />
-          </Routes>
+          <Suspense fallback={<div className="min-h-[60vh] bg-[#F7FAF5]" />}>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <Home
+                    onOpenQuote={() => handleOpenQuote()}
+                    onSelectSolution={handleSelectSolution}
+                    onCalculateQuote={handleCalculateQuote}
+                    contactSolution={contactSolution}
+                  />
+                }
+              />
+              <Route
+                path="/about"
+                element={<AboutPage onOpenQuote={() => handleOpenQuote()} />}
+              />
+              <Route
+                path="/solutions"
+                element={
+                  <SolutionsPage
+                    onOpenQuote={() => handleOpenQuote()}
+                    onSelectSolution={handleSelectSolution}
+                  />
+                }
+              />
+              <Route
+                path="/why-solar"
+                element={<WhySolarPage onOpenQuote={() => handleOpenQuote()} />}
+              />
+              <Route
+                path="/calculator"
+                element={<CalculatorPage onCalculateQuote={handleCalculateQuote} />}
+              />
+              <Route
+                path="/projects"
+                element={<ProjectsPage onOpenQuote={() => handleOpenQuote()} />}
+              />
+              <Route
+                path="/locations"
+                element={<LocationsPage onOpenQuote={handleOpenQuote} />}
+              />
+              <Route
+                path="/contact"
+                element={<ContactPage prefilledSolution={contactSolution} />}
+              />
+              <Route
+                path="*"
+                element={
+                  <Home
+                    onOpenQuote={() => handleOpenQuote()}
+                    onSelectSolution={handleSelectSolution}
+                    onCalculateQuote={handleCalculateQuote}
+                    contactSolution={contactSolution}
+                  />
+                }
+              />
+            </Routes>
+          </Suspense>
         </main>
 
         <Footer onOpenQuote={() => handleOpenQuote()} />

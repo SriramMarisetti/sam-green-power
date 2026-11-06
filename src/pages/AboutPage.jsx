@@ -2,10 +2,27 @@ import React from 'react';
 import { Leaf, ShieldCheck, Sun, Zap, CheckCircle2, Globe2, Compass, Mail, Phone, MapPin, Award, Users, Wrench } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ScrollReveal, { ScrollStagger } from '../components/ScrollReveal';
+import SEO from '../components/SEO';
+import { PAGE_SEO, getBreadcrumbSchema, getOrganizationSchema } from '../seo/seoConfig';
 
 export default function AboutPage({ onOpenQuote }) {
+  const aboutSchemas = [
+    getOrganizationSchema(),
+    getBreadcrumbSchema(PAGE_SEO.about.breadcrumbs),
+  ];
+
   return (
     <div className="bg-[#F7FAF5]">
+      {/* Route-Specific SEO Metadata & Schemas */}
+      <SEO
+        title={PAGE_SEO.about.title}
+        description={PAGE_SEO.about.description}
+        keywords={PAGE_SEO.about.keywords}
+        canonical={PAGE_SEO.about.canonical}
+        ogType={PAGE_SEO.about.ogType}
+        image={PAGE_SEO.about.image}
+        schemas={aboutSchemas}
+      />
 
       {/* Page Header Banner */}
       <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-20 bg-[#063B18] text-white overflow-hidden">
@@ -16,7 +33,7 @@ export default function AboutPage({ onOpenQuote }) {
           <ScrollReveal animation="fade-up" className="max-w-3xl space-y-4">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-[#55B51F] text-xs font-bold uppercase tracking-wider backdrop-blur-md">
               <Leaf className="w-3.5 h-3.5" />
-              <span>About Us • Page 2 Client Specifications</span>
+              <span>About Us • Engineering Excellence</span>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight font-display">
               Clean Energy. Better Future.
@@ -38,7 +55,11 @@ export default function AboutPage({ onOpenQuote }) {
               <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-100 relative group">
                 <img
                   src="/images/about-solar.jpg"
-                  alt="SAM Green Power Photovoltaic System"
+                  alt="SAM GREEN POWER high-yield photovoltaic solar installation in Andhra Pradesh"
+                  loading="lazy"
+                  decoding="async"
+                  width="800"
+                  height="600"
                   className="w-full h-[480px] object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#063B18]/70 via-transparent to-transparent" />

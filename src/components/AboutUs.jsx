@@ -33,7 +33,11 @@ export default function AboutUs() {
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-100 group">
               <img
                 src="/images/about-solar.jpg"
-                alt="Solar Panel Installation by SAM Green Power"
+                alt="High-Yield Photovoltaic Solar Panel Installation by SAM GREEN POWER SOLUTIONS"
+                loading="lazy"
+                decoding="async"
+                width="800"
+                height="600"
                 className="w-full h-[400px] sm:h-[480px] object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#063B18]/70 via-transparent to-transparent" />

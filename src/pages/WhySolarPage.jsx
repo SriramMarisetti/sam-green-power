@@ -3,6 +3,8 @@ import { PiggyBank, Leaf, Shield, Globe2, ArrowRight, HelpCircle, CheckCircle2, 
 import { Link } from 'react-router-dom';
 import ScrollReveal, { ScrollStagger } from '../components/ScrollReveal';
 import { FAQS_DATA } from '../data/content';
+import SEO from '../components/SEO';
+import { PAGE_SEO, getBreadcrumbSchema, getFaqSchema } from '../seo/seoConfig';
 
 export default function WhySolarPage({ onOpenQuote }) {
   // Allow toggling FAQ items or keeping multiple open
@@ -12,8 +14,23 @@ export default function WhySolarPage({ onOpenQuote }) {
     setOpenIndex(openIndex === idx ? -1 : idx);
   };
 
+  const whySolarSchemas = [
+    getBreadcrumbSchema(PAGE_SEO.whySolar.breadcrumbs),
+    getFaqSchema(FAQS_DATA),
+  ];
+
   return (
     <div className="bg-[#F7FAF5]">
+      {/* Route-Specific SEO Metadata & Schemas */}
+      <SEO
+        title={PAGE_SEO.whySolar.title}
+        description={PAGE_SEO.whySolar.description}
+        keywords={PAGE_SEO.whySolar.keywords}
+        canonical={PAGE_SEO.whySolar.canonical}
+        ogType={PAGE_SEO.whySolar.ogType}
+        image={PAGE_SEO.whySolar.image}
+        schemas={whySolarSchemas}
+      />
 
       {/* Header Banner */}
       <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-20 bg-[#063B18] text-white overflow-hidden">

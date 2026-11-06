@@ -20,7 +20,12 @@ export default function Hero({ onOpenQuote }) {
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img
           src="/images/solar-sky-hero.jpg"
-          alt="Solar Panels under Clear Blue Sky"
+          alt="SAM GREEN POWER high-efficiency solar panel installation under clear blue sky"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+          width="1920"
+          height="1080"
           className="w-full h-full object-cover object-[75%_center] lg:object-[82%_center] scale-105 transform animate-pulse duration-[10000ms]"
         />
 
@@ -123,7 +128,11 @@ export default function Hero({ onOpenQuote }) {
               <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-200">
                 <img
                   src="/images/residential-solar.jpg"
-                  alt="High-Efficiency Rooftop Solar Panels"
+                  alt="High-Efficiency Rooftop Solar Panels installed by SAM GREEN POWER"
+                  loading="lazy"
+                  decoding="async"
+                  width="600"
+                  height="400"
                   className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#063B18]/90 via-[#063B18]/30 to-transparent" />

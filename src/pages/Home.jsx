@@ -11,6 +11,9 @@ import OurLocations from '../components/OurLocations';
 import CallToAction from '../components/CallToAction';
 import ContactSection from '../components/ContactSection';
 import HomeFaqSection from '../components/HomeFaqSection';
+import SEO from '../components/SEO';
+import { PAGE_SEO, getOrganizationSchema, getWebSiteSchema, getLocalBusinessSchema, getFaqSchema } from '../seo/seoConfig';
+import { FAQS_DATA } from '../data/content';
 
 export default function Home({ onOpenQuote, onSelectSolution, onCalculateQuote, contactSolution }) {
   const handleBookInCity = (city, state) => {
@@ -20,8 +23,26 @@ export default function Home({ onOpenQuote, onSelectSolution, onCalculateQuote, 
     });
   };
 
+  const homeSchemas = [
+    getOrganizationSchema(),
+    getWebSiteSchema(),
+    getLocalBusinessSchema(),
+    getFaqSchema(FAQS_DATA.slice(0, 6)),
+  ];
+
   return (
     <>
+      {/* Route-Specific SEO Metadata & Schemas */}
+      <SEO
+        title={PAGE_SEO.home.title}
+        description={PAGE_SEO.home.description}
+        keywords={PAGE_SEO.home.keywords}
+        canonical={PAGE_SEO.home.canonical}
+        ogType={PAGE_SEO.home.ogType}
+        image={PAGE_SEO.home.image}
+        schemas={homeSchemas}
+      />
+
       {/* Full-Bleed Solar & Sky Hero Section */}
       <Hero onOpenQuote={onOpenQuote} />
 
@@ -62,4 +83,3 @@ export default function Home({ onOpenQuote, onSelectSolution, onCalculateQuote, 
     </>
   );
 }
-

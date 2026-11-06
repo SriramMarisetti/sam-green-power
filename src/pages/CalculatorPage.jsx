@@ -2,10 +2,42 @@ import React from 'react';
 import InteractiveSolarCalculator from '../components/InteractiveSolarCalculator';
 import { Calculator, ShieldCheck, Sun, Zap } from 'lucide-react';
 import ScrollReveal, { ScrollStagger } from '../components/ScrollReveal';
+import SEO from '../components/SEO';
+import { PAGE_SEO, getBreadcrumbSchema } from '../seo/seoConfig';
 
 export default function CalculatorPage({ onCalculateQuote }) {
+  const calculatorSchemas = [
+    getBreadcrumbSchema(PAGE_SEO.calculator.breadcrumbs),
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebApplication',
+      name: 'SAM GREEN POWER Solar Sizing & ROI Calculator',
+      url: 'https://www.samgreenpower.in/calculator',
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'All',
+      browserRequirements: 'Requires JavaScript. Requires HTML5.',
+      description:
+        'Interactive photovoltaic system sizing and financial savings calculator for residential and commercial property owners in Andhra Pradesh and Telangana.',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'INR',
+      },
+    },
+  ];
+
   return (
     <div className="bg-[#F7FAF5] pb-20">
+      {/* Route-Specific SEO Metadata & Schemas */}
+      <SEO
+        title={PAGE_SEO.calculator.title}
+        description={PAGE_SEO.calculator.description}
+        keywords={PAGE_SEO.calculator.keywords}
+        canonical={PAGE_SEO.calculator.canonical}
+        ogType={PAGE_SEO.calculator.ogType}
+        image={PAGE_SEO.calculator.image}
+        schemas={calculatorSchemas}
+      />
       
       {/* Header Banner */}
       <section className="relative pt-32 pb-14 sm:pt-40 sm:pb-16 bg-[#063B18] text-white overflow-hidden mb-12">

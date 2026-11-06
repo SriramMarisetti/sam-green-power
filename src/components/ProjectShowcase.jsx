@@ -68,7 +68,11 @@ export default function ProjectShowcase() {
               <div className="relative h-64 overflow-hidden bg-slate-100">
                 <img
                   src={project.image}
-                  alt={project.title}
+                  alt={`${project.title} - ${project.capacity} in ${project.location} by SAM GREEN POWER`}
+                  loading="lazy"
+                  decoding="async"
+                  width="600"
+                  height="400"
                   className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#063B18]/80 via-black/20 to-transparent" />
@@ -143,7 +147,11 @@ export default function ProjectShowcase() {
             <div className="relative h-64 sm:h-80 w-full shrink-0">
               <img
                 src={activeModalProject.image}
-                alt={activeModalProject.title}
+                alt={`${activeModalProject.title} - ${activeModalProject.capacity}`}
+                loading="lazy"
+                decoding="async"
+                width="800"
+                height="500"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20" />

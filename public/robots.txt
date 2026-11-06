@@ -1,0 +1,12 @@
+# Robots.txt for SAM GREEN POWER SOLUTIONS
+# Website: https://www.samgreenpower.in/
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Host configuration
+Host: https://www.samgreenpower.in
+
+# XML Sitemap location
+Sitemap: https://www.samgreenpower.in/sitemap.xml
