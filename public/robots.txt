@@ -10,3 +10,4 @@ Host: https://www.samgreenpower.in
 
 # XML Sitemap location
 Sitemap: https://www.samgreenpower.in/sitemap.xml
+

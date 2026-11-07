@@ -60,6 +60,10 @@ export default function Footer({ onOpenQuote }) {
                 <img
                   src="/logo-footer.png"
                   alt="SAM GREEN POWER SOLUTIONS PRIVATE LIMITED"
+                  width="56"
+                  height="56"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-contain rounded-full"
                 />
               </div>

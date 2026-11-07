@@ -39,3 +39,4 @@ console.log('✅ dist/robots.txt verified: contains', robots.split('\n').filter(
 const sitemap = fs.readFileSync('dist/sitemap.xml', 'utf8');
 const urlCount = (sitemap.match(/<loc>/g) || []).length;
 console.log('✅ dist/sitemap.xml verified: contains', urlCount, 'canonical URLs.');
+

@@ -63,6 +63,8 @@ export default function Navbar({ onOpenQuote }) {
                 <img
                   src="/logo-nav.png"
                   alt="SAM GREEN POWER SOLUTIONS PRIVATE LIMITED"
+                  width="48"
+                  height="48"
                   className="w-full h-full object-contain rounded-full"
                 />
               </div>

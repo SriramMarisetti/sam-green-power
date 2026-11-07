@@ -147,7 +147,7 @@ export default function PromoModal({ isOpen, onClose }) {
             {/* Header Badge */}
             <div className="flex items-center gap-2.5 sm:gap-3">
               <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-white p-1 border border-[#55B51F]/30 shadow-xs shrink-0">
-                <img src="/logo-128.png" alt="SAM GREEN POWER" className="w-full h-full object-contain rounded-full" />
+                <img src="/logo-128.png" alt="SAM GREEN POWER SOLUTIONS" width="44" height="44" loading="lazy" decoding="async" className="w-full h-full object-contain rounded-full" />
               </div>
               <div className="min-w-0">
                 <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[#55B51F]/15 text-[#063B18] text-[10px] font-extrabold tracking-wider uppercase border border-[#55B51F]/30">

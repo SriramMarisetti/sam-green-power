@@ -18,7 +18,7 @@ export default function LearnMoreModal({ isOpen, onClose, onOpenQuote }) {
         <div className="p-5 sm:p-8 modal-scrollbar flex-1 overflow-y-auto">
           <div className="flex items-center gap-3.5 mb-6 pr-10">
           <div className="w-14 h-14 rounded-2xl bg-white p-1 border border-[#55B51F]/30 shadow-md">
-            <img src="/logo-128.png" alt="SAM GREEN POWER" className="w-full h-full object-contain rounded-full" />
+            <img src="/logo-128.png" alt="SAM GREEN POWER SOLUTIONS" width="56" height="56" loading="lazy" decoding="async" className="w-full h-full object-contain rounded-full" />
           </div>
           <div>
             <span className="text-xs font-bold uppercase tracking-wider text-[#55B51F] block">

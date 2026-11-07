@@ -37,7 +37,11 @@ class ThreeErrorBoundary extends Component {
             <div className="absolute inset-0 rounded-full border-4 border-[#55B51F] animate-pulse"></div>
             <img
               src="/logo-footer.png"
-              alt="SAM Green Power"
+              alt="SAM GREEN POWER SOLUTIONS Solar Array"
+              width="112"
+              height="112"
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-contain p-2"
             />
           </div>

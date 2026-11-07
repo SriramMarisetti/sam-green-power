@@ -110,7 +110,7 @@ export default function ContactSection({ prefilledSolution, hideHeader = false }
             {/* Form Header */}
             <div className="flex items-center gap-3 mb-5">
               <div className="w-11 h-11 rounded-2xl bg-white p-1 border border-[#55B51F]/30 shadow-sm shrink-0">
-                <img src="/logo-128.png" alt="SAM GREEN POWER" className="w-full h-full object-contain rounded-full" />
+                <img src="/logo-128.png" alt="SAM GREEN POWER SOLUTIONS" width="44" height="44" loading="lazy" decoding="async" className="w-full h-full object-contain rounded-full" />
               </div>
               <div className="min-w-0">
                 <span className="text-[11px] uppercase font-extrabold text-[#55B51F] tracking-wider block">
