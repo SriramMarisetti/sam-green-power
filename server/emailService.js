@@ -29,7 +29,7 @@ function isDuplicateSubmission(key) {
 export function getTransporter() {
   const user = (process.env.EMAIL_USER || 'infosamgreenpower@gmail.com').trim();
   // Strip any accidental spaces from Gmail App Password
-  const pass = (process.env.EMAIL_PASS || 'tjlyvnoimtoezula').replace(/\s+/g, '');
+  const pass = (process.env.EMAIL_PASS || 'xaxpgwqczkjoowvr').replace(/\s+/g, '');
 
   return nodemailer.createTransport({
     service: 'gmail',
