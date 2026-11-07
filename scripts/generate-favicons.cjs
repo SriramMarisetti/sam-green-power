@@ -38,8 +38,8 @@ async function generateAllFavicons() {
     console.log(`✅ Generated ${name} (${size}x${size})`);
   }
 
-  // 2. Generate multi-resolution favicon.ico (16x16, 32x32, 48x48)
-  const icoSizes = [16, 32, 48];
+  // 2. Generate multi-resolution favicon.ico (48x48 first for Googlebot, then 32x32, 16x16)
+  const icoSizes = [48, 32, 16];
   const count = icoSizes.length;
   const headerSize = 6;
   const dirEntrySize = 16;
