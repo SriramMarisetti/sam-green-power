@@ -7,6 +7,11 @@ const checks = [
   { name: 'Canonical Link', pass: html.includes('rel="canonical" href="https://www.samgreenpower.in/"') },
   { name: 'Meta Robots', pass: html.includes('name="robots" content="index, follow') },
   { name: 'Googlebot Meta', pass: html.includes('name="googlebot"') },
+  { name: 'Favicon ICO Link', pass: html.includes('rel="icon" type="image/x-icon" href="/favicon.ico"') },
+  { name: 'Favicon 48x48 Link (Google Standard)', pass: html.includes('href="/favicon-48x48.png"') },
+  { name: 'Favicon SVG Link (Vector Tab)', pass: html.includes('rel="icon" type="image/svg+xml" href="/favicon.svg"') },
+  { name: 'Apple Touch Icon Link', pass: html.includes('rel="apple-touch-icon"') },
+  { name: 'Web Manifest Link', pass: html.includes('rel="manifest" href="/site.webmanifest"') },
   { name: 'OG Title', pass: html.includes('property="og:title"') },
   { name: 'OG Image', pass: html.includes('property="og:image"') },
   { name: 'OG Locale', pass: html.includes('property="og:locale" content="en_IN"') },
@@ -40,3 +45,28 @@ const sitemap = fs.readFileSync('dist/sitemap.xml', 'utf8');
 const urlCount = (sitemap.match(/<loc>/g) || []).length;
 console.log('✅ dist/sitemap.xml verified: contains', urlCount, 'canonical URLs.');
 
+// Check physical favicon files in dist/
+const favicons = [
+  'favicon.ico',
+  'favicon.svg',
+  'favicon.png',
+  'favicon-16x16.png',
+  'favicon-32x32.png',
+  'favicon-48x48.png',
+  'favicon-96x96.png',
+  'favicon-144x144.png',
+  'favicon-192x192.png',
+  'favicon-512x512.png',
+  'apple-touch-icon.png',
+  'site.webmanifest'
+];
+console.log('\n=== PHYSICAL FAVICON ASSETS VERIFICATION ===');
+favicons.forEach(file => {
+  const p = `dist/${file}`;
+  if (fs.existsSync(p)) {
+    const stat = fs.statSync(p);
+    console.log(`✅ dist/${file} exists (${stat.size} bytes)`);
+  } else {
+    console.error(`❌ dist/${file} is MISSING!`);
+  }
+});
